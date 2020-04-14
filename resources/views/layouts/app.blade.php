@@ -94,7 +94,7 @@
     </div>
     <div class="row">
       <div class="col-sm">
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Barra de Opciones</button>
+        @yield('topbar')
       </div>
     </div>
     <div class="row">
@@ -109,7 +109,7 @@
     </div>
     <div class="row">
       <div class="col-sm">
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Opcional</button>
+        @yield('footer')
       </div>
     </div>
 </div>

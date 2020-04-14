@@ -10,11 +10,11 @@
 
 @section('content')
 <div class="container">
-  <button type="button" class="btn btn-secondary btn-lg btn-block"> Herramienta Matem&aacute;tica - Inicio</button>
+  <button type="button" class="btn btn-secondary btn-lg btn-block">Hoja de Estudio</button>
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-10">
             <div class="card">
-                <!--<div class="card-header">Dashboard</div>-->
+                <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -23,11 +23,12 @@
                         </div>
                     @endif
                 </div>
-
-                <img  src="../public/img/uca.png"/>
-
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('graf')
+  <button type="button" class="btn btn-primary btn-lg btn-block">Graficas</button>
 @endsection
