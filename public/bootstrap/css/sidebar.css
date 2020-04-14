@@ -1,0 +1,70 @@
+a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+#accordion{
+    border: 2px solid #3485ef;
+    border-radius: 20px;
+    overflow: hidden;
+}
+#accordion .panel{
+    border: none;
+    border-bottom: 2px solid #3485ef;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+}
+#accordion .panel:last-child{
+    border-bottom: none;
+}
+#accordion .panel-heading{
+    padding: 0;
+    border: none;
+}
+#accordion .panel-title a{
+    display: block;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    background: #3485ef;
+    text-align: right;
+    border: none;
+    border-radius: 0;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+#accordion .panel-title a.collapsed{
+    background: #fff;
+    color: #3485ef;
+}
+#accordion .panel-title a.collapsed:hover{
+    background: #3485ef;
+    color: #fff;
+}
+#accordion .panel-title a:after,
+#accordion .panel-title a.collapsed:after{
+    content: "\f107";
+    font-family: fontawesome;
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    transition: all 0.3s ease-in-out 0s;
+}
+#accordion .panel-title a.collapsed:after{
+    content: "\f106";
+    color: #3485ef;
+}
+#accordion .panel-title a.collapsed:hover:after{
+    color: #fff;
+}
+#accordion .panel-body{
+    padding: 20px;
+    border: none;
+    font-size: 14px;
+    color: #888;
+    line-height: 25px;
+}
