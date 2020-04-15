@@ -1,8 +1,8 @@
 <div class="container">
           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              <div class="panel panel-default">
+              <div class="panel panel-default" >
                   <div class="panel-heading" role="tab" id="headingOne">
-                      <h4 class="panel-title">
+                      <h4 class="panel-title" >
                           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                               Clases
                           </a>
