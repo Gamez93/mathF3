@@ -10,25 +10,17 @@
 
 @section('content')
 <div class="container">
-  <button type="button" class="btn btn-secondary btn-lg btn-block">Hoja de Estudio</button>
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+  <button type="button" class="btn btn-secondary btn-lg btn-block">
+    <img src="../public/icons/file-text.svg" alt="" width="25" height="25" title="Hoja">
+    Hoja de Estudio
+  </button>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 @endsection
 
 @section('graf')
-  <button type="button" class="btn btn-primary btn-lg btn-block">Graficas</button>
+  <button type="button" class="btn btn-primary btn-lg btn-block">
+    <img src="../public/icons/graph-up.svg" alt="" width="25" height="25" title="Hoja">
+    Graficas
+  </button>
 @endsection

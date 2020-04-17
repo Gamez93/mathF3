@@ -26,11 +26,15 @@
     -->
     <script src="{{ asset('bootstrap/js/jquery.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/js/popper.min.js') }}" defer></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
+
 
     <!-- bootstrap-->
+    <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/css/sidebar.css') }}" rel="stylesheet">
-    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
+
+
 
     <!--
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -44,6 +48,7 @@
       <div class="col-sm"><nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="../public/icons/play.svg" alt="" width="30" height="30" title="mathF3">
                     Herramienta Matem&aacute;tica
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -71,6 +76,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="../public/icons/person.svg" alt="" width="25" height="25" title="Usuario">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

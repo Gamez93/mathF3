@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Route::get('/hoja', 'HomeController@hoja')->name('hoja');
+Route::view('/hoja','/hojas/hoja')->name('hoja');
 
-Route::get('/hoja', 'HomeController@hoja')->name('hoja');
-//Route::view('/hoja','hoja')->name('hoja');
+Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
