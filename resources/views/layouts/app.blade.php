@@ -9,37 +9,19 @@
 
     <title>mathF3</title>
 
-    <!-- Scripts
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    -->
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-      -->
-
-    <!-- jquery
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    -->
+    <!-- jquery-->
     <script src="{{ asset('bootstrap/js/jquery.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/js/popper.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
 
-
     <!-- bootstrap-->
     <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bootstrap/css/sidebar.css') }}" rel="stylesheet">
-
-
-
-    <!--
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    -->
+    <link href="{{ asset('bootstrap/css/style.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -109,10 +91,36 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-2">@yield('sidebar')</div>
-      <div class="col-sm-6">@yield('content')</div>
-      <div class="col-sm-4">@yield('graf')</div>
+
+      <!--Seccion de Menu de navegacion -->
+      <div class="col col-lg-2" >
+        <!-- Seccion de Menu-->
+        <div class="row" >
+          <div class="col-sm-12" >
+            @yield('sidebar')
+          </div>
+        </div>
+
+        <!-- Seccion de Anotaciones-->
+        <div class="row" >
+          <div class="col-sm-12" >
+            @yield('anotaciones')
+          </div>
+        </div>
+      </div>
+
+      <!-- Seccion de contenido-->
+      <div class="col col-lg-6">
+        @yield('content')
+      </div>
+
+      <!-- Seccion de Graficas-->
+      <div class="col col-lg-4" >
+        @yield('graf')
+      </div>
     </div>
+
+    <!--footer-->
     <div class="row">
       <div class="col-sm">
         @yield('footer')

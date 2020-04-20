@@ -20,4 +20,7 @@
     <img src="../public/icons/film.svg" alt="" width="25" height="25" title="Multimedia">
     MULTIMEDIA</a>
   <div class="dropdown-divider"></div>
+  <br>
+  <br>
+  <br>
 </div>
