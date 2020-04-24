@@ -1,7 +1,7 @@
 
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
 
@@ -45,7 +45,7 @@ p {
 	font-family: cursive;
 	font-size: 15px;
 	line-height: 1.7;
-	
+
 	margin: 5px;
 }
 
@@ -89,7 +89,7 @@ iframe {
 
 
 /*//////////////////////////////////////////////////////////////////
-css del login 
+css del login
 //////////////////////////////////////////////////////////////////*/
 
 .div_limite {
@@ -101,7 +101,7 @@ css del login
 css contenedor de login
 //////////////////////////////////////////////////////////////////*/
 .contenedor_login {
-  width: 100%;  
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -112,7 +112,7 @@ css contenedor de login
   justify-content: center;
   align-items: center;
   padding: 15px;
-  
+
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;;
@@ -280,10 +280,3 @@ css forma de focus input
   -o-transform: scale(1);
   transform: scale(1);
 }
-
-
-
-
-
-
-
