@@ -67,8 +67,6 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
 
-                                        {{ __('Logout') }}
-
                                         {{ __('Cerrar') }}
 
                                     </a>
