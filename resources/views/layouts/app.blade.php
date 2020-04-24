@@ -9,13 +9,17 @@
 
     <title>mathF3</title>
 
+<<<<<<< HEAD
     <!-- Scripts
     <script src="{{ asset('js/app.js') }}" defer></script>
     -->
+=======
+>>>>>>> a27f707eaedc78d8e9576770cfb6f7f5e730ba02
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+<<<<<<< HEAD
     <!-- Styles
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
       -->
@@ -41,6 +45,26 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+=======
+    <!-- jquery-->
+    <script src="{{ asset('bootstrap/js/jquery.min.js') }}" defer></script>
+    <script src="{{ asset('bootstrap/js/popper.min.js') }}" defer></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
+
+    <!-- bootstrap-->
+    <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bootstrap/css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+  <div class="">
+    <div class="row">
+      <div class="col-sm"><nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="../public/icons/play.svg" alt="" width="30" height="30" title="mathF3">
+>>>>>>> a27f707eaedc78d8e9576770cfb6f7f5e730ba02
                     Herramienta Matem&aacute;tica
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -68,6 +92,10 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+<<<<<<< HEAD
+=======
+                                    <img src="../public/icons/person.svg" alt="" width="25" height="25" title="Usuario">
+>>>>>>> a27f707eaedc78d8e9576770cfb6f7f5e730ba02
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -75,7 +103,11 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+<<<<<<< HEAD
                                         {{ __('Logout') }}
+=======
+                                        {{ __('Cerrar') }}
+>>>>>>> a27f707eaedc78d8e9576770cfb6f7f5e730ba02
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -87,12 +119,64 @@
                     </ul>
                 </div>
             </div>
+<<<<<<< HEAD
         </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
     </div>
+=======
+        </nav></div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        @yield('topbar')
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <br>
+      </div>
+    </div>
+    <div class="row">
+
+      <!--Seccion de Menu de navegacion -->
+      <div class="col col-lg-2" >
+        <!-- Seccion de Menu-->
+        <div class="row" >
+          <div class="col-sm-12" >
+            @yield('sidebar')
+          </div>
+        </div>
+
+        <!-- Seccion de Anotaciones-->
+        <div class="row" >
+          <div class="col-sm-12" >
+            @yield('anotaciones')
+          </div>
+        </div>
+      </div>
+
+      <!-- Seccion de contenido-->
+      <div class="col col-lg-6">
+        @yield('content')
+      </div>
+
+      <!-- Seccion de Graficas-->
+      <div class="col col-lg-4" >
+        @yield('graf')
+      </div>
+    </div>
+
+    <!--footer-->
+    <div class="row">
+      <div class="col-sm">
+        @yield('footer')
+      </div>
+    </div>
+</div>
+>>>>>>> a27f707eaedc78d8e9576770cfb6f7f5e730ba02
 
 </body>
 </html>

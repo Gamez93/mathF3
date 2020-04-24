@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+<<<<<<< HEAD
+=======
+
+Route::get('/hojas/hoja', 'HomeController@hoja')->name('hoja');
+>>>>>>> a27f707eaedc78d8e9576770cfb6f7f5e730ba02

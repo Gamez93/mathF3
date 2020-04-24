@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+<<<<<<< HEAD
+=======
+
+//Route::get('/hoja', 'HomeController@hoja')->name('hoja');
+Route::view('/hoja','/hojas/hoja')->name('hoja');
+
+Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
+>>>>>>> a27f707eaedc78d8e9576770cfb6f7f5e730ba02
