@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- jquery-->
+
+
     <script src="{{ asset('bootstrap/js/jquery.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/js/popper.min.js') }}" defer></script>
 
@@ -21,6 +23,9 @@
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
     <link href="{{ asset('bootstrap/css/style.css') }}" rel="stylesheet">
+
+    <script src="{{ asset('bootstrap/js/jquery.js') }}" defer></script>
+    <script src="{{ asset('bootstrap/js/jquery.min.1.4.2.js') }}" defer></script>
 
 </head>
 <body>
@@ -85,12 +90,13 @@
 
     </div>
 
-
+    <!--Top bar con nombre de la UCA -->
     <div class="row">
       <div class="col-sm">
         @yield('topbar')
       </div>
     </div>
+    <!-- Barra de division en blanco -->
     <div class="row">
       <div class="col-sm">
         <br>
@@ -123,7 +129,20 @@
 
       <!-- Seccion de Graficas-->
       <div class="col col-lg-4" >
-        @yield('graf')
+
+        <!-- Seccion de Menu-->
+        <div class="row" >
+          <div class="col-sm-12" >
+            @yield('graf')
+          </div>
+        </div>
+
+        <!-- Seccion de Anotaciones-->
+        <div class="row" >
+          <div class="col-sm-12" >
+            @yield('calculadora')
+          </div>
+        </div>
       </div>
     </div>
 
