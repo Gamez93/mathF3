@@ -34,11 +34,17 @@ Route::post('updateFromRB','MateriaController@updateFromRB');
   //listado
   Route::get('/bibliografia','BibliografiaController@index')->name('bibliografia');
 
-  //Formulario Crear
+  //ir a Formulario Crear
   Route::get('/bibliografia/create','BibliografiaController@create')->name('bibliografia.create');
 
   //Guardar Formulario Crear
   Route::post('/bibliografia/store','BibliografiaController@store')->name('bibliografia.store');
+
+  //ir a Formulario Editar
+  Route::get('/bibliografia/{bibliografia}/edit','BibliografiaController@edit')->name('bibliografia.edit');
+
+  //Update a la bibliografia
+  Route::put('bibliografia/{id}','BibliografiaController@update');
 
   //Eliminar
   Route::post('/bibliografia/{id}','BibliografiaController@destroy')->name('destroy');

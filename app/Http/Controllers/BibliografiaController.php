@@ -85,9 +85,21 @@ class BibliografiaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit(Bibliografia $bibliografia)
+    {   //titulo de la pagina
+        $title = 'Editar Bibliografia';
+
+        //titulo del boton
+        $btn_store = 'Guardar';
+
+        //titulo del boton
+        $btn_cancel = 'Cancelar';
+
+        //materias
+        $materias = Materia::where('estado','1')->get();
+
+        //return de vista + parametros
+        return view('bibliografia.editar',compact('title','btn_store','btn_cancel','materias','bibliografia'));
     }
 
     /**
@@ -98,8 +110,21 @@ class BibliografiaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   //dd('entra');
+        $data = request()->validate([
+          'materia_id' => 'required',
+          'descripcion' => 'required',
+          'URL' => 'required'
+        ]);
+
+        $bibliografia = Bibliografia::Findorfail($id);
+        $bibliografia->fill($request->only(['materia_id','descripcion','URL']));
+        $bibliografia['estado'] = 1;
+        $bibliografia->save();
+
+          return redirect()->route('bibliografia');
+        //return redirect()->action('BibliografiaController@index',['bibliografias' =>$bibliografias,'title'=>$title,'btn_add'=>$btn_add]);
+        //return redirect()->action('BibliografiaController@index');
     }
 
     /**

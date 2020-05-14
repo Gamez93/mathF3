@@ -11,13 +11,13 @@
 @section('content')
 
     <button type="button"  class="btn btn-secondary btn-lg btn-block">
-      {{$title}}
+      {{$title ?? ''}}
     </button>
     <br>
     <div class="table-responsive">
-      <a class="btn btn-outline-success btn-block" href="{{url('bibliografia/create')}}" role="button">{{$btn_add}}</a>
+      <a class="btn btn-outline-success btn-block" href="{{url('bibliografia/create')}}" role="button">{{$btn_add ?? ''}}</a>
       <br>
-      <table class="table table-hover table-sm">
+      <table id="dtBasicExample" class="table table-hover table-sm ">
       <thead class="thead-light">
         <tr>
           <th scope="col">#</th>
@@ -38,13 +38,13 @@
           <td>{{$bibliografia->descripcion}}</td>
           <td>{{$bibliografia->URL}}</td>
           <td>
-            <a class="btn btn-outline-primary" href="{{action('MateriaController@edit', $bibliografia->id)}}" role="button">Editar</a>
+            <a class="btn btn-outline-primary btn-sm" href="{{action('BibliografiaController@edit', $bibliografia)}}" role="button">Editar</a>
           </td>
           <td>
             <form action="{{action('BibliografiaController@destroy', $bibliografia->id)}}" method="post">
              {{csrf_field()}}
              <input name="_method" type="hidden" value="DELETE">
-             <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+             <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
            </td>
         </tr>
         @endforeach
@@ -58,4 +58,13 @@
     </div>
 
 
+
+
 @endsection
+
+<script>
+$(document).ready(function () {
+$('#dtBasicExample').DataTable();
+$('.dataTables_length').addClass('bs-select');
+});
+</script>

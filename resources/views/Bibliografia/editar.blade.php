@@ -13,7 +13,8 @@
     {{$title}}
   </button>
   <br>
-  <form method="post" action="{{url('bibliografia/store')}}">
+  <form method="post" action="{{action('BibliografiaController@update', $bibliografia->id)}}">
+    {{ method_field('PUT') }}
     {{csrf_field()}}
 
     <div class="form-group">
@@ -27,11 +28,11 @@
 
     <div class="form-group">
       <label for="descripcion">Descripcion</label>
-      <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion">
+      <input type="text" class="form-control" id="descripcion" value="{{$bibliografia->descripcion}}" name="descripcion" placeholder="Descripcion">
     </div>
     <div class="form-group">
       <label for="URL">URL</label>
-      <input type="text" class="form-control" id="URL" name="URL" placeholder="URL">
+      <input type="text" class="form-control" id="URL" value="{{$bibliografia->URL}}" name="URL" placeholder="URL">
     </div>
 
     <div class="form-row">
