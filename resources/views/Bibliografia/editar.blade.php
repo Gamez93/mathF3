@@ -48,3 +48,11 @@
 
   </form>
 @endsection
+
+@section('footer')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#materia_id").val({{$bibliografia->materia->id}});
+  });
+</script>
+@endsection

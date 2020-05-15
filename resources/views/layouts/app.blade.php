@@ -14,8 +14,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- jquery-->
-
-
     <script src="{{ asset('bootstrap/js/jquery.min.js') }}" defer></script>
     <script src="{{ asset('bootstrap/js/popper.min.js') }}" defer></script>
 
@@ -23,9 +21,6 @@
     <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
     <link href="{{ asset('bootstrap/css/style.css') }}" rel="stylesheet">
-
-    <script src="{{ asset('bootstrap/js/jquery.js') }}" defer></script>
-    <script src="{{ asset('bootstrap/js/jquery.min.1.4.2.js') }}" defer></script>
 
 </head>
 <body>
@@ -99,6 +94,15 @@
     <!-- Barra de division en blanco -->
     <div class="row">
       <div class="col-sm">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <br>
       </div>
     </div>
@@ -149,6 +153,7 @@
     <!--footer-->
     <div class="row">
       <div class="col-sm">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         @yield('footer')
       </div>
     </div>
