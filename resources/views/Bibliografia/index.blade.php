@@ -29,14 +29,15 @@
         </tr>
       </thead>
       <tbody>
-        <?php $i = 1; ?>
+        <?php $i = ($bibliografias->currentpage()-1) * $bibliografias->perpage() + 1; ?>
         @if($bibliografias->count())
+        {{ $bibliografias->links() }}
         @foreach($bibliografias as $bibliografia)
         <tr>
           <th scope="row">{{$i++}}</th>
           <td>{{$bibliografia->materia->nombre}}</td>
           <td>{{$bibliografia->descripcion}}</td>
-          <td>{{$bibliografia->URL}}</td>
+          <td> <a href="{{$bibliografia->URL}}" target="_blank">{{$bibliografia->URL}}</a></td>
           <td>
             <a class="btn btn-outline-primary btn-sm" href="{{action('BibliografiaController@edit', $bibliografia)}}" role="button">Editar</a>
           </td>
@@ -56,15 +57,10 @@
         </tbody>
       </table>
     </div>
-
-
-
-
 @endsection
 
-<script>
-$(document).ready(function () {
-$('#dtBasicExample').DataTable();
-$('.dataTables_length').addClass('bs-select');
-});
+@section('footer')
+<script type="text/javascript">
+
 </script>
+@endsection

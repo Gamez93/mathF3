@@ -18,11 +18,11 @@ class BibliografiaController extends Controller
     {   //titulo de la pagina
         $title = 'Listado de Bibliografias';
         //texto del boton Add
-        $btn_add = 'Agregar nueva Bibliografia';
+        $btn_add = 'Crear nueva Bibliografia';
 
         //Listado de bibliografias y su Materia correspondiente
         //$bibliografias = DB::table('bibliografia')->get();
-        $bibliografias = Bibliografia::with('materia')->where('estado','1')->get();
+        $bibliografias = Bibliografia::with('materia')->where('estado','1')->simplePaginate(8);
         //dd($bibliografias);
 
         //Retorno de la vista
@@ -65,7 +65,7 @@ class BibliografiaController extends Controller
           'materia_id' => $request->materia_id
         ]);
 
-        return redirect()->route('bibliografia');
+        return redirect()->route('bibliografia')->with('message', 'Bibliografia Creada Correctamente.');
     }
 
     /**
@@ -122,9 +122,7 @@ class BibliografiaController extends Controller
         $bibliografia['estado'] = 1;
         $bibliografia->save();
 
-          return redirect()->route('bibliografia');
-        //return redirect()->action('BibliografiaController@index',['bibliografias' =>$bibliografias,'title'=>$title,'btn_add'=>$btn_add]);
-        //return redirect()->action('BibliografiaController@index');
+        return redirect()->route('bibliografia')->with('message', 'Bibliografia Editada Correctamente.');
     }
 
     /**

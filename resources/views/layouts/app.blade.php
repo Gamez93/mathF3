@@ -94,14 +94,27 @@
     <!-- Barra de division en blanco -->
     <div class="row">
       <div class="col-sm">
+
+        <!-- Alerta de errores -->
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+            @foreach ($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>mathF3:</strong> {{ $error }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+            @endforeach
+        @endif
+
+        <!-- Alerta de success -->
+        @if (session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>mathF3:</strong> {{session()->get('message')}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         @endif
         <br>
       </div>
