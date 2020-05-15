@@ -42,10 +42,11 @@
             <a class="btn btn-outline-primary btn-sm" href="{{action('BibliografiaController@edit', $bibliografia)}}" role="button">Editar</a>
           </td>
           <td>
-            <form action="{{action('BibliografiaController@destroy', $bibliografia->id)}}" method="post">
-             {{csrf_field()}}
-             <input name="_method" type="hidden" value="DELETE">
-             <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
+            <form action="{{ route('bibliografia.destroy', $bibliografia->id) }}" method="POST">
+               {{csrf_field()}}
+               {{ method_field('DELETE') }}
+               <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
+            </form>
            </td>
         </tr>
         @endforeach

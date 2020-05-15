@@ -46,8 +46,8 @@ Route::post('updateFromRB','MateriaController@updateFromRB');
   //Update a la bibliografia
   Route::put('bibliografia/{id}','BibliografiaController@update');
 
-  //Eliminar
-  Route::post('/bibliografia/{id}','BibliografiaController@destroy')->name('destroy');
+  //Eliminar Bibliografia
+  Route::delete('/bibliografia/{id}','BibliografiaController@destroy')->name('bibliografia.destroy');
 
 
 

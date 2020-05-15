@@ -113,8 +113,8 @@ class BibliografiaController extends Controller
     {   //dd('entra');
         $data = request()->validate([
           'materia_id' => 'required',
-          'descripcion' => 'required',
-          'URL' => 'required'
+          'descripcion' => 'required|max:255',
+          'URL' => 'required|max:150|url'
         ]);
 
         $bibliografia = Bibliografia::Findorfail($id);
@@ -132,7 +132,10 @@ class BibliografiaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        return view('Bibliografia.index');
+    {   $bibliografia = Bibliografia::Findorfail($id);
+        //dd($bibliografia->id);
+        //$bibliografia = Bibliografia::Findorfail($id);
+        $bibliografia->delete();
+        return redirect()->route('bibliografia')->with('message', 'Bibliografia Eliminada Correctamente.');
     }
 }
