@@ -41,9 +41,6 @@ class MateriaController extends Controller
           //titulo del boton
           $btn_cancel = 'Cancelar';
 
-          //materias
-          //$materias = Materia::where('estado','1')->get();
-
           //return de vista
           return view('materia.create',compact('title','btn_store','btn_cancel'));
     }
@@ -56,19 +53,19 @@ class MateriaController extends Controller
      */
     public function store(Request $request)
     {   //Validacion de campos ingresados
-        $this->validate($request,[  'codigo_materia'          =>'required',
-                                    'nombre'                  =>'required',
+        $this->validate($request,[  'codigo_materia'          =>'required|alpha_num|max:10',
+                                    'nombre'                  =>'required|max:255',
                                     'descripcion'             =>'required',
                                     'objetivo_general'        =>'required',
-                                    'prerrequisito'           =>'required',
-                                    'horasPorCiclo'           =>'required',
-                                    'horasTeoricasSemanales'  =>'required',
-                                    'horasPracticasSemanales' =>'required',
-                                    'cicloEnSemanas'          =>'required',
-                                    'horaClase'               =>'required',
-                                    'unidadesValorativas'     =>'required',
+                                    'prerrequisito'           =>'required|max:20',
+                                    'horasPorCiclo'           =>'required|numeric',
+                                    'horasTeoricasSemanales'  =>'required|numeric',
+                                    'horasPracticasSemanales' =>'required|numeric',
+                                    'cicloEnSemanas'          =>'required|numeric',
+                                    'horaClase'               =>'required|numeric',
+                                    'unidadesValorativas'     =>'required|numeric',
                                     'identificacionCiclo'     =>'required',
-                                    'numeroDeOrden'           =>'required',]);
+                                    'numeroDeOrden'           =>'required|numeric',]);
 
         //Create de nueva Materia
         Materia::create([
