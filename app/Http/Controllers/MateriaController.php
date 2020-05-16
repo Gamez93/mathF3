@@ -14,15 +14,16 @@ class MateriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //$materias = Materia::orderBy('id','DESC');
-        /*$materias = DB::table('materia')->get();
+    {   //titulo de la pagina
+        $title = 'Listado de Materias';
+        //texto del boton Add
+        $btn_add = 'Crear nueva Materia';
 
-        return view('Materia.index',compact('materias'));*/
+        //listado de materias activas
+        $materias = Materia::where('estado','1')->simplePaginate(8);
 
-        $materias = DB::table('materia')->get();
-
-        return view('Materia.index', ['materias' => $materias]);
+        //Retorno de la vista
+        return view('Materia.index',compact('materias','title','btn_add'));
     }
 
     /**
@@ -31,9 +32,20 @@ class MateriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
-        return view('Materia.create');
+      {   //titulo de la pagina
+          $title = 'Nueva Materia';
+
+          //titulo del boton
+          $btn_store = 'Guardar';
+
+          //titulo del boton
+          $btn_cancel = 'Cancelar';
+
+          //materias
+          //$materias = Materia::where('estado','1')->get();
+
+          //return de vista
+          return view('materia.create',compact('title','btn_store','btn_cancel'));
     }
 
     /**
@@ -43,16 +55,40 @@ class MateriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-        $this->validate($request,[  'codigo_materia'  =>'required',
-                                    'nombre'          =>'required',
-                                    'descripcion'     =>'required',
-                                    'objetivo_general'=>'required']);
+    {   //Validacion de campos ingresados
+        $this->validate($request,[  'codigo_materia'          =>'required',
+                                    'nombre'                  =>'required',
+                                    'descripcion'             =>'required',
+                                    'objetivo_general'        =>'required',
+                                    'prerrequisito'           =>'required',
+                                    'horasPorCiclo'           =>'required',
+                                    'horasTeoricasSemanales'  =>'required',
+                                    'horasPracticasSemanales' =>'required',
+                                    'cicloEnSemanas'          =>'required',
+                                    'horaClase'               =>'required',
+                                    'unidadesValorativas'     =>'required',
+                                    'identificacionCiclo'     =>'required',
+                                    'numeroDeOrden'           =>'required',]);
 
-        Materia::find($id)->update($request->all());
-        return redirect()->route('Materia.index')->with('success','Registro actualizado satisfactoriamente');
+        //Create de nueva Materia
+        Materia::create([
+          'codigo_materia'          =>$request->codigo_materia,
+          'nombre'                  =>$request->nombre,
+          'descripcion'             =>$request->descripcion,
+          'objetivo_general'        =>$request->objetivo_general,
+          'prerrequisito'           =>$request->prerrequisito,
+          'horasPorCiclo'           =>$request->horasPorCiclo,
+          'horasTeoricasSemanales'  =>$request->horasTeoricasSemanales,
+          'horasPracticasSemanales' =>$request->horasPracticasSemanales,
+          'cicloEnSemanas'          =>$request->cicloEnSemanas,
+          'horaClase'               =>$request->horaClase,
+          'unidadesValorativas'     =>$request->unidadesValorativas,
+          'identificacionCiclo'     =>$request->identificacionCiclo,
+          'numeroDeOrden'           =>$request->numeroDeOrden,
+        ]);
 
+        //Retunr de vista y mensaje
+        return redirect()->route('materia')->with('message', 'Materia Creada Correctamente.');
     }
 
     /**
@@ -74,11 +110,11 @@ class MateriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Materia $materia)
     {
         //
-        $materias=Materia::find($id);
-        return view('Materia.edit');
+        //$materias=Materia::find($id);
+        return view('Materia.editar');
     }
 
     /**

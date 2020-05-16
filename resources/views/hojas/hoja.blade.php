@@ -103,9 +103,3 @@
 @endsection
 
 <!-- Seccion para mostrar calculadora basica-->
-@section('calculadora')
-  <button type="button" class="btn btn-primary btn-lg btn-block">
-    <img src="../public/icons/file-spreadsheet.svg" alt="" width="25" height="25" title="Hoja">
-    Calculadora
-  </button>
-@endsection

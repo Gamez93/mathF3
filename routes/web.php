@@ -17,19 +17,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//__________________________________________________________________________________________________________
+//Rutas de autenticacion manejadas por laravel
 Auth::routes();
 
-Route::get('/home', 'MateriaController@index')->name('home');
+//__________________________________________________________________________________________________________
+//Home - Inicio de la app
+Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('/hoja', 'HomeController@hoja')->name('hoja');
+//__________________________________________________________________________________________________________
+//Clases
 Route::view('/hoja','/hojas/hoja')->name('hoja');
 
+//__________________________________________________________________________________________________________
+//Multimedia
 Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
 
-Route::resource('/materia','MateriaController');
-
-Route::post('updateFromRB','MateriaController@updateFromRB');
-
+//__________________________________________________________________________________________________________
 //Bibliografia
   //listado
   Route::get('/bibliografia','BibliografiaController@index')->name('bibliografia');
@@ -49,6 +53,24 @@ Route::post('updateFromRB','MateriaController@updateFromRB');
   //Eliminar Bibliografia
   Route::delete('/bibliografia/{id}','BibliografiaController@destroy')->name('bibliografia.destroy');
 
+//__________________________________________________________________________________________________________
+//Materia
+  //listado
+  Route::get('/materia','MateriaController@index')->name('materia');
+
+  //ir a Formulario Crear
+  Route::get('/materia/create','MateriaController@create')->name('materia.create');
+
+  //Guardar Formulario Crear
+  Route::post('/materia/store','MateriaController@store')->name('materia.store');
+//__________________________________________________________________________________________________________
+//
+
+//__________________________________________________________________________________________________________
+//
+
+//__________________________________________________________________________________________________________
+//
 
 
 

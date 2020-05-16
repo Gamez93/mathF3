@@ -20,12 +20,16 @@
     <img src="../public/icons/film.svg" alt="" width="25" height="25" title="Multimedia">
     MULTIMEDIA</a>
   <div class="dropdown-divider"></div>
+
   <a class="dropdown-item" href="{{ route('bibliografia') }}">
       <img src="../public/icons/book.svg" alt="" width="25" height="25" title="Multimedia">
-      BIBLIOGRAFIA</a>
+      BIBLIOGRAFIA - <strong>Admin</strong></a>
+  <div class="dropdown-divider"></div>
+
+  <a class="dropdown-item" href="{{ route('materia') }}">
+      <img src="../public/icons/book.svg" alt="" width="25" height="25" title="Multimedia">
+      MATERIA - <strong>Admin</strong></a>
   <div class="dropdown-divider"></div>
   <div class="dropdown-divider"></div>
-  <br>
-  <br>
-  <br>
+
 </div>

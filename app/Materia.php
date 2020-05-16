@@ -13,7 +13,19 @@ class Materia extends Model
    */
   protected $table = 'materia';
 
-  protected $fillable = ['id','codigo_materia','nombre','descripcion','objetivo_general','estado','seleccion'];
+  protected $fillable = ['codigo_materia',
+                              'nombre'         ,
+                              'descripcion'     ,
+                              'objetivo_general',
+                              'prerrequisito',
+                              'horasPorCiclo',
+                              'horasTeoricasSemanales',
+                              'horasPracticasSemanales',
+                              'cicloEnSemanas',
+                              'horaClase' ,
+                              'unidadesValorativas' ,
+                              'identificacionCiclo' ,
+                              'numeroDeOrden'];
 
   /*Relacion de MAteria con Bibliografias*/
   public function bibliografias()
