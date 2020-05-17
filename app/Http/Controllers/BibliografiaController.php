@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 class BibliografiaController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -22,7 +32,11 @@ class BibliografiaController extends Controller
 
         //Listado de bibliografias y su Materia correspondiente
         //$bibliografias = DB::table('bibliografia')->get();
-        $bibliografias = Bibliografia::with('materia')->where('estado','1')->simplePaginate(8);
+        $id2 = session()->get('idMateria');
+
+        $bibliografias = Bibliografia::with('materia')->where('estado','1')->where('materia_id',$id2)->simplePaginate(8);
+
+        //$bibliografias = Bibliografia::with('materia')->where('estado','1')->simplePaginate(8);
         //dd($bibliografias);
 
         //Retorno de la vista
@@ -143,5 +157,32 @@ class BibliografiaController extends Controller
         //$bibliografia = Bibliografia::Findorfail($id);
         $bibliografia->delete();
         return redirect()->route('bibliografia')->with('message', 'Bibliografia Eliminada Correctamente.');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editList($id)
+    {
+        $id2 = session()->get('idMateria');
+        //titulo de la pagina
+        $title = 'Listado de Bibliografias';
+        //texto del boton Add
+        $btn_add = 'Crear nueva Bibliografia';
+
+        //Listado de bibliografias y su Materia correspondiente
+        //$bibliografias = DB::table('bibliografia')->get();
+        $bibliografias = Bibliografia::with('materia')->where('estado','1')->where('materia_id',$id2)->simplePaginate(8);
+        //dd($bibliografias);
+
+        //Retorno de la vista
+        return view('Bibliografia.index',compact('bibliografias','title','btn_add'));
+    }
+
+    public function cancel(){
+      return back()->withInput();
     }
 }

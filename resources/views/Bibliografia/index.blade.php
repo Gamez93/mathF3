@@ -58,6 +58,9 @@
         </tbody>
       </table>
     </div>
+    <br>
+    <?php $id=session()->get('idMateria'); ?>
+    <a class="btn btn-outline-danger btn-block" href="{{action('MateriaController@edit', $id)}}" role="button">Cancelar</a>
 @endsection
 
 @section('footer')

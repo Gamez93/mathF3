@@ -26,7 +26,7 @@
         <div class="col">
           <div class="row">
             <div class="col">
-              <label for="codigo_materia">Codigo de materia</label>
+              <label for="codigo_materia">Código de materia</label>
               <input value="{{$materia->codigo_materia}}" type="text" class="form-control" id="codigo_materia" name="codigo_materia" placeholder="Codigo de materia">
             </div>
             <div class="col">
@@ -49,7 +49,7 @@
           <input value="{{$materia->horasPorCiclo}}" type="text" class="form-control" id="horasPorCiclo" name="horasPorCiclo" placeholder="Horas por ciclo">
         </div>
         <div class="col">
-          <label for="horasTeoricasSemanales">Horas teoricas</label>
+          <label for="horasTeoricasSemanales">Horas teóricas</label>
           <input value="{{$materia->horasTeoricasSemanales}}" type="text" class="form-control" id="horasTeoricasSemanales" name="horasTeoricasSemanales" placeholder="Horas teoricas">
           <small id="Help" class="text-muted">
             semanales
@@ -68,14 +68,14 @@
     <div class="form-group">
       <div class="form-row">
         <div class="col">
-          <label for="cicloEnSemanas">Duracion del ciclo</label>
+          <label for="cicloEnSemanas">Duración del ciclo</label>
           <input value="{{$materia->cicloEnSemanas}}" type="text" class="form-control" id="cicloEnSemanas" name="cicloEnSemanas" placeholder="Duracion del ciclo">
           <small id="Help" class="text-muted">
             semanas
           </small>
         </div>
         <div class="col">
-          <label for="horaClase">Duracion hora clase</label>
+          <label for="horaClase">Duración hora clase</label>
           <input value="{{$materia->horaClase}}" type="text" class="form-control" id="horaClase" name="horaClase" placeholder="Duracion hora clase">
           <small id="Help" class="text-muted">
             minutos
@@ -86,7 +86,7 @@
           <input value="{{$materia->unidadesValorativas}}" type="text" class="form-control" id="unidadesValorativas" name="unidadesValorativas" placeholder="Unidades valorativas">
         </div>
         <div class="col">
-          <label for="identificacionCiclo">Identificacion Ciclo</label>
+          <label for="identificacionCiclo">Identificación Ciclo</label>
           <select class="form-control" id="identificacionCiclo" name="identificacionCiclo">
             <option value="1">I</option>
             <option value="2">II</option>
@@ -104,7 +104,7 @@
     </div>
 
     <div class="form-group">
-      <label for="descripcion">Descripcion de materia</label>
+      <label for="descripcion">Descripción de materia</label>
       <textarea value="{{$materia->descripcion}}" class="form-control" id="descripcion" name="descripcion" rows="3">{{$materia->descripcion}}</textarea>
     </div>
 
@@ -113,6 +113,7 @@
       <textarea value="{{$materia->objetivo_general}}" class="form-control" id="objetivo_general" name="objetivo_general" rows="3">{{$materia->objetivo_general}}</textarea>
     </div>
 
+    <div class="form-group">
     <div class="form-row">
       <div class="col">
         <button type="submit"  class="btn btn-outline-primary btn-lg btn-block btn-sm">
@@ -123,6 +124,107 @@
         <a class="btn btn-outline-danger btn-lg btn-block btn-sm" href="{{url('materia')}}" role="button">{{$btn_cancel}}</a>
       </div>
     </div>
+</div>
 
   </form>
+@endsection
+
+@section('graf')
+<button type="button"  class="btn btn-secondary btn-lg btn-block w-75">
+  {{$title_c}}
+</button>
+<br>
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">Unidades de {{$materia->nombre}}</h5>
+    <p class="card-text">Puedes administrar las unidades de esta materia acá.</p>
+    <a href="#" class="btn btn-outline-primary">Administrar</a>
+    <?php $j = $materia->unidades->count(); ?>
+    @if($j > 0)
+    <button type="button"  class="btn btn-primary">{{$j}}</button>
+    @else
+    <button type="button"  class="btn btn-danger">0</button>
+    <small id="Help" class="text-muted">
+      No posee Unidades
+    </small>
+    @endif
+  </div>
+</div>
+<br>
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">Bibliografías de {{$materia->nombre}}</h5>
+    <p class="card-text">Puedes administrar las bibliografías de esta materia acá.</p>
+    <a href="{{action('BibliografiaController@editList', $materia->id)}}" class="btn btn-outline-primary">Administrar</a>
+    <?php $i = $materia->bibliografias->count(); ?>
+    @if($i > 0)
+      <a class="btn btn-primary" href="{{action('BibliografiaController@editList', $materia->id)}}" role="button">{{$i}}</a>
+    @else
+      <a class="btn btn-danger" href="{{action('BibliografiaController@editList', $materia->id)}}" role="button">0</a>
+      <small id="Help" class="text-muted">
+        No posee Bibliografías
+      </small>
+    @endif
+  </div>
+</div>
+<br>
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">Videos de {{$materia->nombre}}</h5>
+    <p class="card-text">Puedes administrar los videos de esta materia acá.</p>
+    <a href="#" class="btn btn-outline-primary">Administrar</a>
+    <?php $k = $materia->bibliografias->count(); ?>
+    @if($k > 0)
+    <button type="button"  class="btn btn-primary">{{$k}}</button>
+    @else
+    <button type="button"  class="btn btn-danger">0</button>
+    <small id="Help" class="text-muted">
+      No posee Videos
+    </small>
+    @endif
+  </div>
+</div>
+@endsection
+
+@section('footer')
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    var x = "{{$materia->identificacionCiclo}}";
+    switch(x) {
+    case "I":
+      $("#identificacionCiclo").val(1);
+      break;
+    case "II":
+      $("#identificacionCiclo").val(2);
+      break;
+    case "III":
+      $("#identificacionCiclo").val(3);
+      break;
+    case "IV":
+      $("#identificacionCiclo").val(4);
+      break;
+    case "V":
+      $("#identificacionCiclo").val(5);
+      break;
+    case "VI":
+      $("#identificacionCiclo").val(6);
+      break;
+    case "VII":
+      $("#identificacionCiclo").val(7);
+      break;
+    case "VIII":
+      $("#identificacionCiclo").val(8);
+      break;
+    case "IX":
+      $("#identificacionCiclo").val(9);
+      break;
+    case "X":
+      $("#identificacionCiclo").val(10);
+      break;
+    default:
+      $("#identificacionCiclo").val(1);
+    };
+  });
+</script>
 @endsection

@@ -40,7 +40,7 @@
           <td>{{$materia->unidadesValorativas}}</td>
           <td>{{$materia->numeroDeOrden}}</td>
           <td>
-            <a class="btn btn-outline-primary btn-sm" href="{{action('MateriaController@edit', $materia)}}"  role="button">Editar</a>
+            <a class="btn btn-outline-primary btn-sm" href="{{action('MateriaController@edit', $materia->id)}}"  role="button">Editar</a>
           </td>
           <td>
             <form action="{{ route('materia.destroy', $materia->id) }}" method="POST">

@@ -53,6 +53,12 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   //Eliminar Bibliografia
   Route::delete('/bibliografia/{id}','BibliografiaController@destroy')->name('bibliografia.destroy');
 
+  //lista de bibliografias por filtro //
+  Route::get('/bibliografia/{id}/editList','BibliografiaController@editList')->name('bibliografia.editList');
+
+  //list bibliografia Cancelar
+  Route::get('/bibliografia/cancel','BibliografiaController@cancel')->name('bibliografia.cancel');
+
 //__________________________________________________________________________________________________________
 //Materia
   //listado
@@ -73,10 +79,10 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   //Eliminar Materia
   Route::delete('/materia/{id}','MateriaController@destroy')->name('materia.destroy');
 //__________________________________________________________________________________________________________
-//
+//Unidad
 
 //__________________________________________________________________________________________________________
-//
+//Video
 
 //__________________________________________________________________________________________________________
 //
