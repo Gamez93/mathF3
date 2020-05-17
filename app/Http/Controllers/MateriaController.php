@@ -108,10 +108,17 @@ class MateriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Materia $materia)
-    {
-        //
-        //$materias=Materia::find($id);
-        return view('Materia.editar');
+    {   //titulo de la pagina
+        $title = 'Editar Materia' . ' "' . $materia->nombre . '"';
+
+        //titulo del boton
+        $btn_store = 'Guardar';
+
+        //titulo del boton
+        $btn_cancel = 'Cancelar';
+
+        //return de vista + parametros
+        return view('Materia.editar',compact('title','btn_store','btn_cancel','materia'));
     }
 
     /**
@@ -122,15 +129,24 @@ class MateriaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-        $this->validate($request,[  'codigo_materia'  =>'required',
-                                    'nombre'          =>'required',
-                                    'descripcion'     =>'required',
-                                    'objetivo_general'=>'required']);
+    { //Validacion de campos ingresados
+        $this->validate($request,[  'codigo_materia'          =>'required|alpha_num|max:10',
+                                    'nombre'                  =>'required|max:255',
+                                    'descripcion'             =>'required',
+                                    'objetivo_general'        =>'required',
+                                    'prerrequisito'           =>'required|max:20',
+                                    'horasPorCiclo'           =>'required|numeric',
+                                    'horasTeoricasSemanales'  =>'required|numeric',
+                                    'horasPracticasSemanales' =>'required|numeric',
+                                    'cicloEnSemanas'          =>'required|numeric',
+                                    'horaClase'               =>'required|numeric',
+                                    'unidadesValorativas'     =>'required|numeric',
+                                    'identificacionCiclo'     =>'required',
+                                    'numeroDeOrden'           =>'required|numeric',]);
 
         Materia::find($id)->update($request->all());
-        return redirect()->route('Materia.index')->with('success','Registro actualizado satisfactoriamente');
+
+        return redirect()->route('materia')->with('message', 'Materia Editada Correctamente.');
     }
 
     /**
@@ -141,33 +157,11 @@ class MateriaController extends Controller
      */
     public function destroy($id)
     {
-        //
-        Materia::find($id)->delete();
-        return redirect()->route('Materia.index')->with('success','Registro eliminado satisfactoriamente');
+        $materia = Materia::Findorfail($id);
 
+        $materia->delete();
+
+        return redirect()->route('materia')->with('success','Materia eliminada satisfactoriamente');
     }
-
-    public function updateFromRB(Request $request)
-    {
-        //
-        //$this->validate($request,[  'seleccion'  =>'required']);
-        //Materia::find($id)->update($request->all());
-        //$data = Input::all();
-        consol.log($request);
-        $id = $request->id;
-        if($id > 0){
-          $materia = Materia::find($id);
-          $materia->seleccion = $request->seleccion;
-          //$materia->fill($request->all());
-          $materia->save();
-        }
-
-
-        return //Input::all();
-      response()->json([
-         "mensaje" => "Materia Seleccionada."
-        ]);
-    }
-
 
 }

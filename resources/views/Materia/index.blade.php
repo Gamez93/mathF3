@@ -40,10 +40,10 @@
           <td>{{$materia->unidadesValorativas}}</td>
           <td>{{$materia->numeroDeOrden}}</td>
           <td>
-            <a class="btn btn-outline-primary btn-sm" href="{{action('MateriaController@create', $materia)}}"  role="button">Editar</a>
+            <a class="btn btn-outline-primary btn-sm" href="{{action('MateriaController@edit', $materia)}}"  role="button">Editar</a>
           </td>
           <td>
-            <form action="{{ route('bibliografia.destroy', $materia->id) }}" method="POST">
+            <form action="{{ route('materia.destroy', $materia->id) }}" method="POST">
                {{csrf_field()}}
                {{ method_field('DELETE') }}
                <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>

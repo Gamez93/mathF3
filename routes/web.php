@@ -63,6 +63,15 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
 
   //Guardar Formulario Crear
   Route::post('/materia/store','MateriaController@store')->name('materia.store');
+
+  //ir a Formulario Editar
+  Route::get('/materia/{materia}/edit','MateriaController@edit')->name('materia.edit');
+
+  //Update a Materia
+  Route::put('materia/{id}','MateriaController@update');
+
+  //Eliminar Materia
+  Route::delete('/materia/{id}','MateriaController@destroy')->name('materia.destroy');
 //__________________________________________________________________________________________________________
 //
 

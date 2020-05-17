@@ -16,7 +16,7 @@ class CreateUnidadTable extends Migration
         Schema::create('unidad', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('materia_id')->unsigned();
-            $table->foreign('materia_id')->references('id')->on('materia');
+            $table->foreign('materia_id')->references('id')->on('materia')->onDelete('cascade')->change();
             $table->char('nombre', 20);
             $table->longText('descripcion');
             $table->longText('objetivo');

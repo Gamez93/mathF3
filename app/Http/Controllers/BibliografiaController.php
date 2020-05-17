@@ -60,15 +60,15 @@ class BibliografiaController extends Controller
     public function store(Request $request)
     {   //dd($request);
         $data = request()->validate([
-          'materia_id' => 'required',
+          'materia_id'  => 'required',
           'descripcion' => 'required|max:255',
-          'URL' => 'required|max:150|active_url'
+          'URL'         => 'required|max:150|active_url'
         ]);
-        
+
         Bibliografia::create([
           'descripcion' => $request->descripcion,
-          'URL' => $request->URL,
-          'materia_id' => $request->materia_id
+          'URL'         => $request->URL,
+          'materia_id'  => $request->materia_id
         ]);
 
         return redirect()->route('bibliografia')->with('message', 'Bibliografia Creada Correctamente.');
@@ -118,9 +118,9 @@ class BibliografiaController extends Controller
     public function update(Request $request, $id)
     {   //dd('entra');
         $data = request()->validate([
-          'materia_id' => 'required',
+          'materia_id'  => 'required',
           'descripcion' => 'required|max:255',
-          'URL' => 'required|max:150|active_url'
+          'URL'         => 'required|max:150|active_url'
         ]);
 
         $bibliografia = Bibliografia::Findorfail($id);

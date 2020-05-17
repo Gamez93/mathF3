@@ -16,7 +16,7 @@ class CreateVideoTable extends Migration
         Schema::create('video', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('unidad_id')->unsigned();
-            $table->foreign('unidad_id')->references('id')->on('unidad');
+            $table->foreign('unidad_id')->references('id')->on('unidad')->onDelete('cascade')->change();
             $table->longText('descripcion');
             $table->string('URL',150);
             $table->integer('estado')->default(1);

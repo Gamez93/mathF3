@@ -16,7 +16,7 @@ class CreateBibliografiaTable extends Migration
         Schema::create('bibliografia', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('materia_id')->unsigned();
-            $table->foreign('materia_id')->references('id')->on('materia');
+            $table->foreign('materia_id')->references('id')->on('materia')->constrained()->onDelete('cascade')->change();
             $table->string('descripcion');
             $table->string('URL',150);
             $table->integer('estado')->default(1);
