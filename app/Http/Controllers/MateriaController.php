@@ -95,7 +95,9 @@ class MateriaController extends Controller
         ]);
 
         //Retunr de vista y mensaje
+        //$id = session()->get('idMateria');
         return redirect()->route('materia')->with('message', 'Materia Creada Correctamente.');
+        //return redirect()->action('MateriaController@edit',$id)->with('message', 'Materia Creada Correctamente.');
     }
 
     /**
@@ -136,7 +138,7 @@ class MateriaController extends Controller
 
         //Guardamos en sesion el Id de la materia que se esta editando
         session()->put('idMateria', $materia->id);
-        
+
         //return de vista + parametros
         return view('Materia.editar',compact('title','btn_store','btn_cancel','materia','title_c'));
     }
@@ -167,7 +169,10 @@ class MateriaController extends Controller
         Materia::find($id)->update($request->all());
 
         //Retorno a listado materias
-        return redirect()->route('materia')->with('message', 'Materia Editada Correctamente.');
+        //return redirect()->route('materia')->with('message', 'Materia Editada Correctamente.');
+        $id2 = session()->get('idMateria');
+        //return redirect()->route('materia')->with('message', 'Materia Creada Correctamente.');
+        return redirect()->action('MateriaController@edit',$id2)->with('message', 'Materia Editada Correctamente.');
     }
 
     /**
