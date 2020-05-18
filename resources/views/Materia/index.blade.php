@@ -61,6 +61,22 @@
     </div>
 @endsection
 
+@section('graf')
+<div class="alert alert-info alert-dismissible fade show w-75" role="alert">
+   Para administrar el contenido de una materia, hacer clic en <strong>"Editar"</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="alert alert-warning alert-dismissible fade show w-75" role="alert">
+   <strong>Eliminar</strong> una "Materia" tambien elimina su contenido asociado, Unidades, Bibliografia y Videos.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endsection
+
 @section('footer')
 <script type="text/javascript">
 
