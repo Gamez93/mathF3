@@ -80,6 +80,23 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   Route::delete('/materia/{id}','MateriaController@destroy')->name('materia.destroy');
 //__________________________________________________________________________________________________________
 //Unidad
+  //
+  Route::get('/unidad','UnidadController@index')->name('unidad');
+
+  //ir a Formulario Crear
+  Route::get('/unidad/create','UnidadController@create')->name('unidad.create');
+
+  //Guardar Formulario Crear
+  Route::post('/unidad/store','UnidadController@store')->name('unidad.store');
+
+  //ir a Formulario Editar
+  Route::get('/unidad/{unidad}/edit','UnidadController@edit')->name('unidad.edit');
+
+  //Update a Materia
+  Route::put('unidad/{id}','UnidadController@update');
+
+  //Eliminar Materia
+  Route::delete('/unidad/{id}','UnidadController@destroy')->name('unidad.destroy');
 
 //__________________________________________________________________________________________________________
 //Video

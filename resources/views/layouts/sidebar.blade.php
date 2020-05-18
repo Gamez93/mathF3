@@ -21,9 +21,9 @@
     MULTIMEDIA</a>
   <div class="dropdown-divider"></div>
 
-  <a class="dropdown-item" href="{{ route('bibliografia') }}">
+  <a class="dropdown-item" href="{{ route('unidad') }}">
       <img src="../public/icons/book.svg" alt="" width="25" height="25" title="Multimedia">
-      BIBLIOGRAFIA - <strong>Admin</strong></a>
+      UNIDAD - <strong>Admin</strong></a>
   <div class="dropdown-divider"></div>
 
   <a class="dropdown-item" href="{{ route('materia') }}">

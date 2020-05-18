@@ -114,17 +114,23 @@
     </div>
 
     <div class="form-group">
-    <div class="form-row">
-      <div class="col">
-        <button type="submit"  class="btn btn-outline-primary btn-lg btn-block btn-sm">
-          {{$btn_store}}
-        </button>
-      </div>
-      <div class="col">
-        <a class="btn btn-outline-danger btn-lg btn-block btn-sm" href="{{url('materia')}}" role="button">{{$btn_cancel}}</a>
-      </div>
+        <div class="form-row">
+          <div class="col">
+            <button type="submit"  class="btn btn-outline-primary btn-lg btn-block btn-sm">
+              {{$btn_store}}
+            </button>
+          </div>
+          <div class="col">
+            <a class="btn btn-outline-danger btn-lg btn-block btn-sm" href="{{url('materia')}}" role="button">{{$btn_cancel}}</a>
+          </div>
+        </div>
     </div>
-</div>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Recuerde</strong> Guardar cambios antes de "Administrar Contenido".
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
 
   </form>
 @endsection
@@ -138,15 +144,15 @@
   <div class="card-body">
     <h5 class="card-title">Unidades de {{$materia->nombre}}</h5>
     <p class="card-text">Puedes administrar las unidades de esta materia acá.</p>
-    <a href="#" class="btn btn-outline-primary">Administrar</a>
-    <?php $j = $materia->unidades->count(); ?>
-    @if($j > 0)
-    <button type="button"  class="btn btn-primary">{{$j}}</button>
+    <a href="{{action('UnidadController@index', $materia->id)}}" class="btn btn-outline-primary">Administrar</a>
+    <?php $i = $materia->unidades->count(); ?>
+    @if($i > 0)
+      <a class="btn btn-primary" href="{{action('UnidadController@index', $materia->id)}}" role="button">{{$i}}</a>
     @else
-    <button type="button"  class="btn btn-danger">0</button>
-    <small id="Help" class="text-muted">
-      No posee Unidades
-    </small>
+      <a class="btn btn-danger" href="{{action('UnidadController@index', $materia->id)}}" role="button">0</a>
+      <small id="Help" class="text-muted">
+        No posee Unidades
+      </small>
     @endif
   </div>
 </div>
