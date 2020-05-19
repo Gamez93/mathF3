@@ -17,8 +17,10 @@
     {{csrf_field()}}
 
     <div class="form-group">
-      <label for="materia_id">Materia</label>
-      <select class="form-control" id="materia_id" name="materia_id">
+      <?php $id=session()->get('idMateria'); ?>
+      <input type="hidden" name="materia_id" value="{{$id}}" id="materia_id">
+      <label for="materia_id2">Materia</label>
+      <select class="form-control" id="materia_id2" name="materia_id2" disabled>
         @foreach($materias as $materia)
           <option value="{{$materia->id}}">{{$materia->nombre}} - {{$materia->codigo_materia}}</option>
         @endforeach
@@ -46,4 +48,12 @@
     </div>
 
   </form>
+@endsection
+
+@section('footer')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#materia_id2").val({{$materia->id}});
+  });
+</script>
 @endsection

@@ -144,11 +144,12 @@
   <div class="card-body">
     <h5 class="card-title">Unidades de {{$materia->nombre}}</h5>
     <p class="card-text">Puedes administrar las unidades de esta materia acá.</p>
-    <a href="{{action('UnidadController@index', $materia->id)}}" class="btn btn-outline-primary">Administrar</a>
     <?php $i = $materia->unidades->count(); ?>
     @if($i > 0)
+      <a href="{{action('UnidadController@index', $materia->id)}}" class="btn btn-outline-primary">Administrar</a>
       <a class="btn btn-primary" href="{{action('UnidadController@index', $materia->id)}}" role="button">{{$i}}</a>
     @else
+      <a href="{{action('UnidadController@index', $materia->id)}}" class="btn btn-outline-danger">Administrar</a>
       <a class="btn btn-danger" href="{{action('UnidadController@index', $materia->id)}}" role="button">0</a>
       <small id="Help" class="text-muted">
         No posee Unidades
@@ -161,11 +162,12 @@
   <div class="card-body">
     <h5 class="card-title">Bibliografías de {{$materia->nombre}}</h5>
     <p class="card-text">Puedes administrar las bibliografías de esta materia acá.</p>
-    <a href="{{action('BibliografiaController@editList', $materia->id)}}" class="btn btn-outline-primary">Administrar</a>
     <?php $i = $materia->bibliografias->count(); ?>
     @if($i > 0)
+      <a href="{{action('BibliografiaController@editList', $materia->id)}}" class="btn btn-outline-primary">Administrar</a>
       <a class="btn btn-primary" href="{{action('BibliografiaController@editList', $materia->id)}}" role="button">{{$i}}</a>
     @else
+      <a href="{{action('BibliografiaController@editList', $materia->id)}}" class="btn btn-outline-danger">Administrar</a>
       <a class="btn btn-danger" href="{{action('BibliografiaController@editList', $materia->id)}}" role="button">0</a>
       <small id="Help" class="text-muted">
         No posee Bibliografías
@@ -178,22 +180,50 @@
   <div class="card-body">
     <h5 class="card-title">Videos de {{$materia->nombre}}</h5>
     <p class="card-text">Puedes administrar los videos de esta materia acá.</p>
-    <a href="#" class="btn btn-outline-primary">Administrar</a>
-    <?php $k = $materia->bibliografias->count(); ?>
-    @if($k > 0)
-    <button type="button"  class="btn btn-primary">{{$k}}</button>
-    @else
-    <button type="button"  class="btn btn-danger">0</button>
-    <small id="Help" class="text-muted">
-      No posee Videos
-    </small>
-    @endif
+    <?php
+      $count_unidades = $materia->unidades->count();
+
+      $count_videos = 0;
+      foreach ($materia->unidades as $unidad) {
+        $count_videos = $count_videos + $unidad->videos->count();
+      }
+    ?>
+    <a id="btn_videos_1" href="{{action('VideoController@index', $materia->id)}}" class="btn btn-outline-primary">Administrar</a>
+    <a id="btn_videos_2" class="btn btn-primary" href="{{action('VideoController@index', $materia->id)}}" role="button">{{$count_videos}}</a>
+    <small id="lbl_id_adv" class="text-muted"></small>
+
   </div>
 </div>
 @endsection
 
 @section('footer')
 <script type="text/javascript">
+
+  //Logica de administracion de Videos
+  $(document).ready(function(){
+    var j = {{$count_unidades}};
+
+    if ({{$count_videos}} > 0) {
+      document.getElementById("lbl_id_adv").innerText ="";
+    }else {
+      document.getElementById("btn_videos_1").classList.remove('btn-outline-primary');
+      document.getElementById("btn_videos_1").classList.add('btn-outline-danger');
+
+      document.getElementById("btn_videos_2").classList.remove('btn-primary');
+      document.getElementById("btn_videos_2").classList.add('btn-danger');
+
+      if (j > 0) {
+        document.getElementById("lbl_id_adv").innerText = "No posee Videos";
+      }else {
+        document.getElementById("lbl_id_adv").innerText = "Se requiere agregar Unidad.";
+        document.getElementById("btn_videos_1").classList.add('disabled');
+        document.getElementById("btn_videos_2").classList.add('disabled');
+      }
+    }
+
+  });
+
+  //funcion para setear identificacionCiclo ya que es un Enum
   $(document).ready(function(){
 
     var x = "{{$materia->identificacionCiclo}}";

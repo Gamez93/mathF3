@@ -80,7 +80,7 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   Route::delete('/materia/{id}','MateriaController@destroy')->name('materia.destroy');
 //__________________________________________________________________________________________________________
 //Unidad
-  //
+  //index
   Route::get('/unidad','UnidadController@index')->name('unidad');
 
   //ir a Formulario Crear
@@ -100,6 +100,8 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
 
 //__________________________________________________________________________________________________________
 //Video
+  //index
+  Route::get('/video','VideoController@index')->name('video');
 
 //__________________________________________________________________________________________________________
 //
