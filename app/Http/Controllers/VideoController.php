@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Video;
+use App\Unidad;
 
 class VideoController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,16 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+      //titulo
+      $title = 'Videos disponibles por unidad';
+
+      //id materia seleccionada
+      $id = session()->get('idMateria');
+
+      $unidades = Unidad::with('videos')->where('materia_id',$id)->get();
+
+      //Retorno de la vista
+      return view('Video.index',compact('title','unidades'));
     }
 
     /**

@@ -24,6 +24,8 @@
           <th scope="col">Codigo</th>
           <th scope="col">Unidades valorativas</th>
           <th scope="col">Num. de Orden</th>
+          <!--
+          <th scope="col">Ver</th>-->
           <th scope="col">Editar</th>
           <th scope="col">Eliminar</th>
         </tr>
@@ -39,6 +41,7 @@
           <td>{{$materia->codigo_materia}}</td>
           <td>{{$materia->unidadesValorativas}}</td>
           <td>{{$materia->numeroDeOrden}}</td>
+          <!--<td><a class="btn btn-outline-success btn-sm" href="#" role="button">Ver</a></td>-->
           <td>
             <a class="btn btn-outline-primary btn-sm" href="{{action('MateriaController@edit', $materia->id)}}"  role="button">Editar</a>
           </td>
