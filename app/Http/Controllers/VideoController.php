@@ -25,7 +25,7 @@ class VideoController extends Controller
     public function index()
     {
       //titulo
-      $title = 'Videos disponibles por unidad';
+      $title = 'Videos disponibles por Unidad';
 
       //id materia seleccionada
       $id = session()->get('idMateria');
