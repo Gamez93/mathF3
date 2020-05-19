@@ -46,8 +46,13 @@
             <form action="{{ route('materia.destroy', $materia->id) }}" method="POST">
                {{csrf_field()}}
                {{ method_field('DELETE') }}
-               <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
+               <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Estás seguro que deseas eliminar esta Materia?');">Eliminar</button>
             </form>
+            <!--
+            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#exampleModal">
+              Eliminar
+            </button>
+          -->
            </td>
         </tr>
         @endforeach
@@ -59,6 +64,27 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Modal
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Eliminar Materia</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>-->
 @endsection
 
 @section('graf')
