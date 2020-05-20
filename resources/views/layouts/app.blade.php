@@ -147,21 +147,20 @@
 
       <!-- Seccion de Graficas-->
       <div class="col-sm-4 mb-3" >
-
-        <!-- Seccion de Menu-->
+        <!-- Seccion de grafica-->
         <div class="row" >
           <div class="col-sm-12" >
             @yield('graf')
           </div>
         </div>
-
-        <!-- Seccion de Anotaciones-->
+        <!-- Seccion de calculadora-->
         <div class="row" >
           <div class="col-sm-12" >
             @yield('calculadora')
           </div>
         </div>
       </div>
+
     </div>
 
     <!--footer-->
@@ -171,7 +170,6 @@
         @yield('footer')
       </div>
     </div>
-</div>
 
 </body>
 </html>
