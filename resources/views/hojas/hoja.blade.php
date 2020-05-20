@@ -27,46 +27,48 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item">
         <a class=" nav-link" href="#">
-          <img src="../public/icons/file-earmark-plus.svg" alt="" width="25" height="25" title="Nuevo">
+          <img src="{{ url('/icons/file-earmark-plus.svg') }}" alt="" width="25" height="25" title="Nuevo">
 
         </a>
       </li>
       <li>
         <a class="nav-item nav-link" href="#">
-          <img src="../public/icons/upload.svg" alt="" width="25" height="25" title="Cargar">
+          <img src="{{ url('/icons/upload.svg') }}" alt="" width="25" height="25" title="Cargar">
 
         </a>
       </li>
       <li>
         <a class="nav-item nav-link" href="#">
-          <img src="../public/icons/download.svg" alt="" width="25" height="25" title="Descargar">
+          <img src="{{ url('/icons/download.svg') }}" alt="" width="25" height="25" title="Descargar">
 
         </a>
       </li>
       <li>
         <a class="nav-item nav-link" href="#">
-          <img src="../public/icons/graph-up.svg" alt="" width="25" height="25" title="Graficar">
+          <img src="{{ url('/icons/graph-up.svg') }}" alt="" width="25" height="25" title="Graficar">
 
         </a>
       </li>
       <li>
         <a class="nav-item nav-link" href="#">
-          <img src="../public/icons/play.svg" alt="" width="25" height="25" title="Resolver">
+          <img src="{{ url('/icons/play.svg') }}" alt="" width="25" height="25" title="Resolver">
         </a>
       </li>
       <li>
         <a class="nav-item nav-link" href="#">
-          <img src="../public/icons/plus-square.svg" alt="" width="25" height="25" title="Guardar">
+          <img src="{{ url('/icons/plus-square.svg') }}" alt="" width="25" height="25" title="Guardar">
         </a>
       </li>
       <li>
         <a class="nav-item nav-link" href="#">
-          <img src="../public/icons/trash.svg" alt="" width="25" height="25" title="Borrar">
+          <img src="{{ url('/icons/trash.svg') }}" alt="" width="25" height="25" title="Borrar">
         </a>
       </li>
       <li>
         <a class="nav-item nav-link" href="#">
-          <img src="../public/icons/question-square.svg" alt="" width="25" height="25" title="Ayuda">
+          <img role="img" class="text-success" src="{{ url('/icons/question-square.svg') }}" alt="" width="25" height="25" title="Ayuda">
+
+
         </a>
       </li>
     </ul>

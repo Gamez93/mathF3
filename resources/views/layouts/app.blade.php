@@ -27,9 +27,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <img src="../public/icons/play.svg" alt="" width="25" height="25" title="Usuario">
+                <img src="{{ url('/icons/play.svg') }}" alt="" width="25" height="25" title="Usuario">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Herramienta Matem&aacute;tica
+                    <br>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -57,7 +58,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 
-                                    <img src="../public/icons/person.svg" alt="" width="25" height="25" title="Usuario">
+                                    <img src="{{ url('/icons/person.svg') }}" alt="" width="25" height="25" title="Usuario">
 
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
