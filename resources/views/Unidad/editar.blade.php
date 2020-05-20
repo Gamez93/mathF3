@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-  <button type="button"  class="btn btn-secondary btn-lg btn-block">
+  <button type="button"  class="btn btn-outline-dark btn-lg btn-block text-dark mb-1" disabled>
     {{$title}}
   </button>
   <br>

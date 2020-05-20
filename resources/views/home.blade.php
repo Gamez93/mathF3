@@ -10,12 +10,13 @@
 
 @section('content')
 <div class="container">
-  <button type="button"  class="btn btn-secondary btn-lg btn-block">
+  <button type="button"  class="btn btn-outline-dark btn-lg btn-block text-dark" disabled>
     Herramienta Matem&aacute;tica
   </button>
+  <br>
     <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card">
+        <div class="col-md-4 ">
+            <div class="card border-secondary" style="width: 16rem; height: 17rem">
                 <!--<div class="card-header">Dashboard</div>-->
 
                 <div class="card-body">

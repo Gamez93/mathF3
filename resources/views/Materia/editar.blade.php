@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-  <button type="button"  class="btn btn-outline-primary btn-lg btn-block">
+  <button type="button"  class="btn btn-outline-primary btn-lg btn-block text-primary mb-1" disabled>
     {{$title}}
   </button>
   <br>
@@ -121,7 +121,7 @@
             </button>
           </div>
           <div class="col">
-            <a class="btn btn-outline-success btn-lg btn-block btn-sm" href="{{url('materia')}}" role="button">Regresar</a>
+            <a class="btn btn-outline-danger btn-lg btn-block btn-sm" href="{{url('materia')}}" role="button">Cancelar</a>
           </div>
         </div>
     </div>
@@ -136,7 +136,7 @@
 @endsection
 
 @section('graf')
-<button type="button"  class="btn btn-outline-primary btn-lg btn-block w-75">
+<button type="button"  class="btn btn-outline-primary btn-lg btn-block text-primary mb-1 w-75" disabled>
   {{$title_c}}
 </button>
 <br>

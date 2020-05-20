@@ -11,45 +11,70 @@
 @section('content')
 <div class="container">
   <!--Encabezado de la hoja donde interactua el usuario -->
-  <button type="button" class="btn btn-secondary btn-lg btn-block">
+  <button type="button" class="btn btn-outline-dark btn-lg btn-block text-dark mb-1" disabled>
     <img src="../public/icons/file-text.svg" alt="" width="25" height="25" title="Hoja">
     Hoja de Estudio
   </button>
 
   <!--Opciones de la Hoja -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border border-primary  rounded mb-1 p-1">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon sm"></span>
+  </button>
+  <a class="navbar-brand text-primary" href="#">Opciones</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class=" nav-link" href="#">
           <img src="../public/icons/file-earmark-plus.svg" alt="" width="25" height="25" title="Nuevo">
+
         </a>
+      </li>
+      <li>
         <a class="nav-item nav-link" href="#">
           <img src="../public/icons/upload.svg" alt="" width="25" height="25" title="Cargar">
+
         </a>
+      </li>
+      <li>
         <a class="nav-item nav-link" href="#">
           <img src="../public/icons/download.svg" alt="" width="25" height="25" title="Descargar">
+
         </a>
+      </li>
+      <li>
         <a class="nav-item nav-link" href="#">
           <img src="../public/icons/graph-up.svg" alt="" width="25" height="25" title="Graficar">
+
         </a>
+      </li>
+      <li>
         <a class="nav-item nav-link" href="#">
           <img src="../public/icons/play.svg" alt="" width="25" height="25" title="Resolver">
         </a>
+      </li>
+      <li>
         <a class="nav-item nav-link" href="#">
           <img src="../public/icons/plus-square.svg" alt="" width="25" height="25" title="Guardar">
         </a>
+      </li>
+      <li>
         <a class="nav-item nav-link" href="#">
           <img src="../public/icons/trash.svg" alt="" width="25" height="25" title="Borrar">
         </a>
+      </li>
+      <li>
         <a class="nav-item nav-link" href="#">
           <img src="../public/icons/question-square.svg" alt="" width="25" height="25" title="Ayuda">
         </a>
-      </div>
-    </div>
-  </nav>
+      </li>
+    </ul>
+  </div>
+</nav>
 
   <!--div editor:  div en el cual tiene la etiqueta conteneditable la cual se va a utilizar como texarea para ingresar informacion por el usuario-->
-	<div id='editor' style='' contenteditable="true" class="editor"   onmousedown='eventoCalcular()' >
+	<div id='editor'  contenteditable="true" class="editor rounded"   onmousedown='eventoCalcular()' >
 		<div ><p id="noborrar">Universidad Centroamericana "Jos&eacute; Sime&oacute;n Cañas"</P></div>
 
 		<p>La Derivada </p>
@@ -78,11 +103,11 @@
 
 <!-- Seccion de Anotaciones-->
 @section('anotaciones')
-<div class="list-group" style=" text-align:center">
-<button type="button" class="btn btn-primary btn-lg btn-block">
-  <img src="../public/icons/file-earmark.svg" alt="" width="25" height="25" title="Hoja">
+<button type="button" class="btn btn-outline-primary btn-lg btn-block text-primary mb-3" disabled>
+  <img src="../public/icons/file-earmark.svg" alt="" width="25" height="25" title="Anotaciones">
   Anotaciones
 </button>
+<div class="list-group text-center border border-dark rounded" >
 
   <button type="button" class="list-group-item list-group-item-action">
     Cras justo odio
@@ -96,10 +121,16 @@
 
 <!-- Seccion para mostrar graficas-->
 @section('graf')
-  <button type="button" class="btn btn-primary btn-lg btn-block">
-    <img src="../public/icons/graph-up.svg" alt="" width="25" height="25" title="Hoja">
+  <button type="button" class="btn btn-outline-primary btn-lg btn-block text-primary mb-3" disabled>
+    <img src="../public/icons/graph-up.svg" alt="" width="25" height="25" title="Graficas">
     Graficas
   </button>
+  <div class="content border border-dark rounded">
+    <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+    <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
+    <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
+    <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+  </div>
 @endsection
 
 <!-- Seccion para mostrar calculadora basica-->

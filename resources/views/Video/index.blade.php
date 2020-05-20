@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <button type="button"  class="btn btn-secondary btn-lg btn-block">
+    <button type="button"  class="btn btn-outline-dark btn-lg btn-block text-dark mb-1" disabled>
       {{$title ?? ''}}
     </button>
     <br>
@@ -44,7 +44,7 @@
       </div>
       <br>
       <?php $id=session()->get('idMateria'); ?>
-      <a class="btn btn-outline-danger btn-block btn-sm" href="{{action('MateriaController@edit', $id)}}" role="button">Cancelar</a>
+      <a class="btn btn-outline-success btn-block btn-sm" href="{{action('MateriaController@edit', $id)}}" role="button">Regresar</a>
     </div>
 @endsection
 
