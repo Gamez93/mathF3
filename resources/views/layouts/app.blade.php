@@ -121,10 +121,10 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row ">
 
       <!--Seccion de Menu de navegacion -->
-      <div class="col col-lg-2" >
+      <div class="col-sm-2 mb-3" >
         <!-- Seccion de Menu-->
         <div class="row" >
           <div class="col-sm-12" >
@@ -141,12 +141,12 @@
       </div>
 
       <!-- Seccion de contenido-->
-      <div class="col col-lg-6">
+      <div class="col-sm-6 mb-3">
         @yield('content')
       </div>
 
       <!-- Seccion de Graficas-->
-      <div class="col col-lg-4" >
+      <div class="col-sm-4 mb-3" >
 
         <!-- Seccion de Menu-->
         <div class="row" >
