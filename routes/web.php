@@ -103,6 +103,9 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   //index
   Route::get('/video','VideoController@index')->name('video');
 
+  //index Video
+  Route::get('/indexvideo/{id}/index','VideoController@indexvideo')->name('indexvideo');
+
 //__________________________________________________________________________________________________________
 //
 

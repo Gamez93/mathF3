@@ -36,6 +36,25 @@ class VideoController extends Controller
       return view('Video.index',compact('title','unidades'));
     }
 
+    public function indexvideo($id)
+    {
+      //titulo
+      $title = 'Lista de Videos';
+
+      $btn_add = 'Agregar nuevo Video';
+
+      //id materia seleccionada
+      $id2 = session()->get('idMateria');
+
+      //Guardamos en sesion el Id de la materia que se esta editando
+      session()->put('idUnidad', $id);
+
+      $videos = Video::with('unidad')->where('unidad_id',$id)->simplePaginate(8);
+
+      //Retorno de la vista
+      return view('Video.indexvideo',compact('title','videos','btn_add'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

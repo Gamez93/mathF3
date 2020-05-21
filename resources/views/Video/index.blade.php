@@ -31,11 +31,11 @@
                   $count = $unidad->videos->count();
                  ?>
                  @if($count > 0)
-                  <a id="btn_vid_1" href="#" class="btn btn-outline-primary ">Administrar</a>
-                  <a id="btn_vid_2" href="#" class="btn btn-primary ">{{$unidad->videos->count()}}</a>
+                  <a id="btn_vid_1" href="{{action('VideoController@indexvideo', $unidad->id)}}" class="btn btn-outline-primary ">Administrar</a>
+                  <a id="btn_vid_2" href="{{action('VideoController@indexvideo', $unidad->id)}}" class="btn btn-primary ">{{$unidad->videos->count()}}</a>
                  @else
-                   <a id="btn_vid_1" href="#" class="btn btn-outline-danger ">Administrar</a>
-                   <a id="btn_vid_2" href="#" class="btn btn-danger ">{{$unidad->videos->count()}}</a>
+                   <a id="btn_vid_1" href="{{action('VideoController@indexvideo', $unidad->id)}}" class="btn btn-outline-danger ">Administrar</a>
+                   <a id="btn_vid_2" href="{{action('VideoController@indexvideo', $unidad->id)}}" class="btn btn-danger ">{{$unidad->videos->count()}}</a>
                  @endif
               </div>
             </div>
