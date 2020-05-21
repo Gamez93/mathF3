@@ -122,7 +122,7 @@
     </div>
 
     <div class="row ">
-
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
       <!--Seccion de Menu de navegacion -->
       <div class="col-sm-2 mb-3" >
         <!-- Seccion de Menu-->
@@ -163,11 +163,12 @@
 
     </div>
 
-    <!--footer-->
+    <!--footer <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>-->
     <div class="row">
       <div class="col-sm">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
         @yield('footer')
+
       </div>
     </div>
 

@@ -194,9 +194,7 @@
 
   </div>
 </div>
-@endsection
 
-@section('footer')
 <script type="text/javascript">
 
   //Logica de administracion de Videos
