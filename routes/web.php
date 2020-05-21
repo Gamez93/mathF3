@@ -106,6 +106,9 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   //index Video
   Route::get('/indexvideo/{id}/index','VideoController@indexvideo')->name('indexvideo');
 
+  //ir a Formulario Crear
+  Route::get('/video/create','VideoController@create')->name('video.create');
+
 //__________________________________________________________________________________________________________
 //
 

@@ -14,7 +14,7 @@
     </button>
     <br>
     <div class="table-responsive">
-      <a class="btn btn-outline-success btn-block" href="{{url('bibliografia/create')}}" role="button">{{$btn_add ?? ''}}</a>
+      <a class="btn btn-outline-success btn-block" href="{{url('video/create')}}" role="button">{{$btn_add ?? ''}}</a>
       <br>
       <table id="dtBasicExample" class="table table-hover table-sm ">
       <thead class="thead-light">

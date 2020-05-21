@@ -41,8 +41,6 @@ class VideoController extends Controller
       //titulo
       $title = 'Lista de Videos';
 
-      $btn_add = 'Agregar nuevo Video';
-
       //id materia seleccionada
       $id2 = session()->get('idMateria');
 
@@ -50,6 +48,11 @@ class VideoController extends Controller
       session()->put('idUnidad', $id);
 
       $videos = Video::with('unidad')->where('unidad_id',$id)->simplePaginate(8);
+
+      //titulo
+      $title = $videos[0]->unidad->nombre . ' - ' . $videos[0]->unidad->descripcion;
+
+      $btn_add = 'Agregar nuevo video';
 
       //Retorno de la vista
       return view('Video.indexvideo',compact('title','videos','btn_add'));
@@ -62,7 +65,22 @@ class VideoController extends Controller
      */
     public function create()
     {
-        //
+          //id Unidad seleccionada
+          $idUnidad = session()->get('idUnidad');
+          //titulo de la pagina
+          $title = 'Nuevo Video';
+
+          //titulo del boton
+          $btn_store = 'Guardar';
+
+          //titulo del boton
+          $btn_cancel = 'Cancelar';
+
+          //materias
+          $unidad = Unidad::with('materia')->Findorfail($idUnidad);
+
+          //return de vista
+          return view('video.create',compact('title','btn_store','btn_cancel','unidad'));
     }
 
     /**
