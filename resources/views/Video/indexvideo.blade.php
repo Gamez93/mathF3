@@ -35,10 +35,11 @@
         @foreach($videos as $video)
         <tr>
           <th scope="row">{{$i++}}</th>
-          <td>materia</td>
-          <td>unidad</td>
+          <td>{{$video->unidad->materia->nombre}}</td>
+          <td>{{$video->unidad->nombre}}</td>
           <td>{{$video->descripcion}}</td>
-          <td>URL</td>
+          <td><a href="{{$video->URL}}" target="_blank">{{$video->URL}}</a></td>
+
           <td>
             <a class="btn btn-outline-primary btn-sm" href="{{action('BibliografiaController@edit', $video)}}" role="button">Editar</a>
           </td>
@@ -61,6 +62,6 @@
     </div>
     <br>
     <?php $id=session()->get('idMateria'); ?>
-    <a class="btn btn-outline-danger btn-block" href="{{action('MateriaController@edit', $id)}}" role="button">Cancelar</a>
+    <a class="btn btn-outline-danger btn-block" href="{{action('VideoController@index', $id)}}" role="button">Cancelar</a>
 
 @endsection
