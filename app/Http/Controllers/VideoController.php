@@ -50,7 +50,8 @@ class VideoController extends Controller
       $videos = Video::with('unidad')->where('unidad_id',$id)->simplePaginate(8);
 
       //titulo
-      $title = $videos[0]->unidad->nombre . ' - ' . $videos[0]->unidad->descripcion;
+      $unidad = Unidad::Findorfail($id);
+      $title = $unidad->nombre . ' - ' . $unidad->descripcion;
 
       $btn_add = 'Agregar nuevo video';
 
@@ -67,8 +68,6 @@ class VideoController extends Controller
     {
           //id Unidad seleccionada
           $idUnidad = session()->get('idUnidad');
-          //titulo de la pagina
-          $title = 'Nuevo Video';
 
           //titulo del boton
           $btn_store = 'Guardar';
@@ -78,6 +77,9 @@ class VideoController extends Controller
 
           //materias
           $unidad = Unidad::with('materia')->Findorfail($idUnidad);
+
+          //titulo de la pagina
+          $title = $unidad->nombre . ' - ' . $unidad->descripcion;
 
           //return de vista
           return view('video.create',compact('title','btn_store','btn_cancel','unidad'));
@@ -91,7 +93,19 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+          'descripcion' => 'required',
+          'URL'    => 'required'
+        ]);
+
+        $id = session()->get('idUnidad');
+        Video::create([
+          'unidad_id'      => $id,
+          'descripcion' => $request->descripcion,
+          'URL'    => $request->URL,
+        ]);
+
+        return redirect()->action('VideoController@indexvideo',['id'=>$id])->with('message', 'Video Creado Correctamente.');
     }
 
     /**
@@ -113,7 +127,19 @@ class VideoController extends Controller
      */
     public function edit($id)
     {
-        //
+        //dd($video);
+        //titulo de la pagina
+        $title = 'Editar video';
+
+        //titulo del boton
+        $btn_store = 'Guardar';
+
+        //titulo del boton
+        $btn_cancel = 'Cancelar';
+
+        $video = Video::Findorfail($id);
+        //return de vista + parametros
+        return view('video.editar',compact('title','btn_store','btn_cancel','video'));
     }
 
     /**
@@ -125,7 +151,16 @@ class VideoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = request()->validate([
+          'descripcion' => 'required',
+          'URL'    => 'required'
+        ]);
+
+        $video = Video::Findorfail($id);
+        $video->fill($request->only(['descripcion','URL']));
+        $video->save();
+        $id = session()->get('idUnidad');
+        return redirect()->action('VideoController@indexvideo',['id'=>$id])->with('message', 'Video editado Correctamente.');
     }
 
     /**
@@ -136,6 +171,10 @@ class VideoController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $video = Video::Findorfail($id);
+      $video->delete();
+
+      $id = session()->get('idUnidad');
+      return redirect()->action('VideoController@indexvideo',['id'=>$id])->with('message', 'Video eliminado correctamente.');
     }
 }

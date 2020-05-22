@@ -13,20 +13,21 @@
     {{$title}}
   </button>
   <br>
-  <form method="post" action="{{url('video/store')}}">
+  <form method="post" action="{{action('VideoController@update', $video->id)}}">
+    {{ method_field('PUT') }}
     {{csrf_field()}}
 
     <div class="form-group">
       <div class="row">
         <div class="col">
           <label for="descripcion">Descripcion de video</label>
-          <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion">
+          <input type="text" value="{{$video->descripcion}}" id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion">
         </div>
       </div>
       <div class="row">
         <div class="col">
           <label for="URL">URL</label>
-          <input type="text" id="URL" name="URL" class="form-control" placeholder="URL">
+          <input type="text" value="{{$video->URL}}" id="URL" name="URL" class="form-control" placeholder="URL">
         </div>
       </div>
     </div>

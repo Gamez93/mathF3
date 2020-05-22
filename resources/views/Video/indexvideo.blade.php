@@ -41,10 +41,10 @@
           <td><a href="{{$video->URL}}" target="_blank">{{$video->URL}}</a></td>
 
           <td>
-            <a class="btn btn-outline-primary btn-sm" href="{{action('BibliografiaController@edit', $video)}}" role="button">Editar</a>
+            <a class="btn btn-outline-primary btn-sm" href="{{action('VideoController@edit', $video)}}" role="button">Editar</a>
           </td>
           <td>
-            <form action="{{ route('bibliografia.destroy', $video->id) }}" method="POST">
+            <form action="{{ route('video.destroy', $video->id) }}" method="POST">
                {{csrf_field()}}
                {{ method_field('DELETE') }}
                <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>

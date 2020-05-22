@@ -109,6 +109,18 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   //ir a Formulario Crear
   Route::get('/video/create','VideoController@create')->name('video.create');
 
+  //Guardar Formulario Crear
+  Route::post('/video/store','VideoController@store')->name('video.store');
+
+  //ir a Formulario Editar
+  Route::get('/video/{video}/edit','VideoController@edit')->name('video.edit');
+
+  //Update a Materia
+  Route::put('video/{id}','VideoController@update');
+
+  //Eliminar video
+  Route::delete('/video/{id}','VideoController@destroy')->name('video.destroy');
+
 //__________________________________________________________________________________________________________
 //
 
