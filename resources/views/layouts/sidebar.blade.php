@@ -29,10 +29,12 @@
     BIBLIOGRAFIA</a>
   <div class="dropdown-divider"></div> -->
 
+@if(Auth::user()->isAdmin == 1)
   <a class="dropdown-item {{ URL::route('materia') === URL::current() ? 'active' : '' }}" href="{{ route('materia') }}">
       <img src="{{ url('/icons/book.svg') }}" alt="" width="25" height="25" title="Multimedia">
       MATERIAS</a>
   <div class="dropdown-divider"></div>
+@endif
   <div class="dropdown-divider"></div>
 
 </div>
