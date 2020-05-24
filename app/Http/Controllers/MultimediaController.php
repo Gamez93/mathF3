@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Materia;
+use App\Unidad;
+use App\Video;
+use App\Bibliografia;
 
 class MultimediaController extends Controller
 {
@@ -66,7 +69,7 @@ class MultimediaController extends Controller
         //session()->put('idMateria', $materia->id);
 
         //return de vista + parametros
-        return view('Multimedia.showmateria',compact('title','btn_store','btn_cancel','materia'));
+        return view('Multimedia.show_materia',compact('title','btn_store','btn_cancel','materia'));
     }
 
     /**
@@ -96,7 +99,7 @@ class MultimediaController extends Controller
         //session()->put('idMateria', $materia->id);
 
         //return de vista + parametros
-        return view('Multimedia.showmateria',compact('title','btn_store','btn_cancel','materia','title_c'));
+        return view('Multimedia.show_materia',compact('title','btn_store','btn_cancel','materia','title_c'));
     }
 
     /**
@@ -107,26 +110,14 @@ class MultimediaController extends Controller
      */
     public function showbiblio($id)
     {
-        //Select de la materia
-        $materia = Materia::Findorfail($id);
-
         //titulo de la pagina
-        $title = 'Programa de ' . ' "' . $materia->nombre . '"';
+        $title = 'Listado de Bibliografias';
 
-        //titulo del boton
-        $btn_store = 'Guardar';
+        $bibliografias = Bibliografia::with('materia')->where('materia_id',$id)->get();
 
-        //titulo del boton
-        $btn_cancel = 'Regresar';
-
-        //titulo del contenido
-        $title_c = 'Administrar Contenido de' . ' "' . $materia->nombre . '"';
-
-        //Guardamos en sesion el Id de la materia que se esta editando
-        //session()->put('idMateria', $materia->id);
 
         //return de vista + parametros
-        return view('Multimedia.showmateria',compact('title','btn_store','btn_cancel','materia','title_c'));
+        return view('Multimedia.show_biblio',compact('title','bibliografias'));
     }
 
     /**
@@ -171,6 +162,6 @@ class MultimediaController extends Controller
             $materias = Materia::with('bibliografias')->with('unidades')->where('estado','1')->get();
   
             //Retorno de la vista
-            return view('Multimedia.showlist',compact('materias','title'));
+            return view('Multimedia.show_list',compact('materias','title'));
       }
 }

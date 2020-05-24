@@ -202,7 +202,7 @@ class MateriaController extends Controller
           $materias = Materia::with('bibliografias')->with('unidades')->where('estado','1')->get();
 
           //Retorno de la vista
-          return view('Materia.showlist',compact('materias','title','btn_add'));
+          return view('Materia.show_list',compact('materias','title','btn_add'));
     }
 
 }
