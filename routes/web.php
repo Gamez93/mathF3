@@ -133,8 +133,14 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   //listado show para usuarios NO admin
   Route::get('/multimedia/{opcion}/showlist','MultimediaController@showlist')->name('multimedia.showlist');
 
-  //ir a Vista show de Materia
-  Route::get('/multimedia/{idMateria}/show','MultimediaController@show')->name('multimedia.show');
+  //ir a Vista show de programa Materia
+  Route::get('/multimedia/{idMateria}/showprograma','MultimediaController@showprograma')->name('multimedia.showprograma');
+
+  //ir a Vista show de videos
+  Route::get('/multimedia/{idMateria}/showvideo','MultimediaController@showvideo')->name('multimedia.showvideo');
+
+  //ir a Vista show de bibliografia
+  Route::get('/multimedia/{idMateria}/showbiblio','MultimediaController@showbiblio')->name('multimedia.showbiblio');
 
 
 

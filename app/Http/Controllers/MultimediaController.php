@@ -45,7 +45,67 @@ class MultimediaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showprograma($id)
+    {
+        //Select de la materia
+        $materia = Materia::Findorfail($id);
+
+        //titulo de la pagina
+        $title = 'Programa de ' . ' "' . $materia->nombre . '"';
+
+        //titulo del boton
+        $btn_store = 'Guardar';
+
+        //titulo del boton
+        $btn_cancel = 'Regresar';
+
+        //titulo del contenido
+        $title_c = 'Administrar Contenido de' . ' "' . $materia->nombre . '"';
+
+        //Guardamos en sesion el Id de la materia que se esta editando
+        //session()->put('idMateria', $materia->id);
+
+        //return de vista + parametros
+        return view('Multimedia.showmateria',compact('title','btn_store','btn_cancel','materia'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showvideo($id)
+    {
+        //Select de la materia
+        $materia = Materia::Findorfail($id);
+
+        //titulo de la pagina
+        $title = 'Programa de ' . ' "' . $materia->nombre . '"';
+
+        //titulo del boton
+        $btn_store = 'Guardar';
+
+        //titulo del boton
+        $btn_cancel = 'Regresar';
+
+        //titulo del contenido
+        $title_c = 'Administrar Contenido de' . ' "' . $materia->nombre . '"';
+
+        //Guardamos en sesion el Id de la materia que se esta editando
+        //session()->put('idMateria', $materia->id);
+
+        //return de vista + parametros
+        return view('Multimedia.showmateria',compact('title','btn_store','btn_cancel','materia','title_c'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showbiblio($id)
     {
         //Select de la materia
         $materia = Materia::Findorfail($id);
@@ -105,14 +165,12 @@ class MultimediaController extends Controller
 
     public function showlist(){
         //titulo de la pagina
-            $title = 'Multimedia';
-            //texto del boton Add
-            $btn_add = 'Crear nueva Materia';
+            $title = 'Contenido de Materias';
   
             //listado de materias activas
             $materias = Materia::with('bibliografias')->with('unidades')->where('estado','1')->get();
   
             //Retorno de la vista
-            return view('Multimedia.showlist',compact('materias','title','btn_add'));
+            return view('Multimedia.showlist',compact('materias','title'));
       }
 }

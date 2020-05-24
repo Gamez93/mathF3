@@ -17,16 +17,17 @@
     <img src="{{ url('/icons/pencil.svg') }}" alt="" width="25" height="25" title="Clases">
     CLASES</a>
   <div class="dropdown-divider"></div>
-
-  <a class="dropdown-item " href="{{action('MultimediaController@showlist', 1)}}">
-    <img src="{{ url('/icons/film.svg') }}" alt="" width="25" height="25" title="Multimedia">
-    MULTIMEDIA</a>
+ 
+  <a class="dropdown-item {{ URL::route('multimedia') === URL::current() ? 'active' : '' }}" href="{{action('MultimediaController@showlist', 1)}}">
+    <img src="{{ url('/icons/archive.svg') }}" alt="" width="25" height="25" title="Multimedia">
+    CONTENIDO</a>
   <div class="dropdown-divider"></div>
 
+  <!-- 
   <a class="dropdown-item " href="#">
     <img src="{{ url('/icons/bookmarks.svg') }}" alt="" width="25" height="25" title="Multimedia">
     BIBLIOGRAFIA</a>
-  <div class="dropdown-divider"></div>
+  <div class="dropdown-divider"></div> -->
 
   <a class="dropdown-item {{ URL::route('materia') === URL::current() ? 'active' : '' }}" href="{{ route('materia') }}">
       <img src="{{ url('/icons/book.svg') }}" alt="" width="25" height="25" title="Multimedia">
