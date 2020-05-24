@@ -96,7 +96,7 @@
     <div class="row">
       <div class="col-sm">
 
-        <!-- Alerta de errores -->
+        <!-- Alerta de errores 
         @if ($errors->any())
             @foreach ($errors->all() as $error)
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -106,7 +106,7 @@
               </button>
             </div>
             @endforeach
-        @endif
+        @endif -->
 
         <!-- Alerta de success -->
         @if (session()->has('message'))
@@ -135,6 +135,17 @@
         <!-- Seccion de Anotaciones-->
         <div class="row" >
           <div class="col-sm-12" >
+          <!-- Alerta de errores -->
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <strong>mathF3:</strong> {{ $error }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @endforeach
+        @endif
             @yield('anotaciones')
           </div>
         </div>

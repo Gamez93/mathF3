@@ -20,7 +20,7 @@
               <div id="card_{{$materia->id}}" class="card text-white bg-primary mb-3" style="width: 16rem; height: 15rem">
 
               <div class="card-body text-white">
-                <h5 class="card-title">{{$materia->nombre}}</h5>
+                <h4 class="card-title">{{$materia->nombre}}</h4>
                 <p class="card-text">Codigo: {{$materia->codigo_materia}}</p>
                 <p class="card-text">UV: {{$materia->unidadesValorativas}}</p>
                 <p class="card-text">Ciclo: {{$materia->identificacionCiclo}}</p>
@@ -36,10 +36,11 @@
               <div class="card-footer">
                 <div class="row">
                   <div class="col">
-                    <a id="btn_vid_2" href="{{action('VideoController@indexvideo', $materia->id)}}" class="btn btn-primary bg-light text-primary" style="width: 10rem;">
+                    <a id="btn_vid_2" href="#" class="btn btn-primary bg-light text-primary" style="width: 10rem;" data-toggle="tooltip" data-placement="top" title="videos disponibles">
                       {{$count_videos}} videos
                     </a>
-                    <a class="btn btn-primary bg-light text-primary" href="#" role="button">...</a>
+                    <a class="btn btn-primary bg-light text-primary" href="{{action('MultimediaController@show', $materia->id)}}" role="button" data-toggle="tooltip" data-placement="top" title="programa de materia">
+                    ...</a>
                   </div>
 
                 </div>

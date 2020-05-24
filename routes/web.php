@@ -82,8 +82,6 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   //Eliminar Materia
   Route::delete('/materia/{id}','MateriaController@destroy')->name('materia.destroy');
 
-  //listado show para usuarios NO admin
-  Route::get('/materia/{opcion}/showlist','MateriaController@showlist')->name('materia.showlist');
 //__________________________________________________________________________________________________________
 //Unidad
   //index
@@ -128,7 +126,15 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   Route::delete('/video/{id}','VideoController@destroy')->name('video.destroy');
 
 //__________________________________________________________________________________________________________
-//
+//Multimedia
+  //ir a index de Unidades + Videos
+  Route::get('/multimedia/{id}/index','MultimediaController@index')->name('multimedia.index');
+
+  //listado show para usuarios NO admin
+  Route::get('/multimedia/{opcion}/showlist','MultimediaController@showlist')->name('multimedia.showlist');
+
+  //ir a Vista show de Materia
+  Route::get('/multimedia/{idMateria}/show','MultimediaController@show')->name('multimedia.show');
 
 
 
