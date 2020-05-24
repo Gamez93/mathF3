@@ -59,6 +59,9 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
   //list bibliografia Cancelar
   Route::get('/bibliografia/cancel','BibliografiaController@cancel')->name('bibliografia.cancel');
 
+  //listado
+  Route::get('/bibliografia/show','BibliografiaController@show')->name('bibliografia.show');
+
 //__________________________________________________________________________________________________________
 //Materia
   //listado
@@ -78,6 +81,9 @@ Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
 
   //Eliminar Materia
   Route::delete('/materia/{id}','MateriaController@destroy')->name('materia.destroy');
+
+  //listado show para usuarios NO admin
+  Route::get('/materia/{opcion}/showlist','MateriaController@showlist')->name('materia.showlist');
 //__________________________________________________________________________________________________________
 //Unidad
   //index

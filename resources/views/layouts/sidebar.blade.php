@@ -18,9 +18,14 @@
     CLASES</a>
   <div class="dropdown-divider"></div>
 
-  <a class="dropdown-item {{ URL::route('multimedia') === URL::current() ? 'active' : '' }}" href="{{ route('multimedia') }}">
+  <a class="dropdown-item " href="{{action('MateriaController@showlist', 1)}}">
     <img src="{{ url('/icons/film.svg') }}" alt="" width="25" height="25" title="Multimedia">
     MULTIMEDIA</a>
+  <div class="dropdown-divider"></div>
+
+  <a class="dropdown-item " href="{{action('MateriaController@showlist', 2)}}">
+    <img src="{{ url('/icons/bookmarks.svg') }}" alt="" width="25" height="25" title="Multimedia">
+    BIBLIOGRAFIA</a>
   <div class="dropdown-divider"></div>
 
   <a class="dropdown-item {{ URL::route('materia') === URL::current() ? 'active' : '' }}" href="{{ route('materia') }}">
@@ -30,9 +35,3 @@
   <div class="dropdown-divider"></div>
 
 </div>
-
-@section('footer')
-<script type="text/javascript">
-
-</script>
-@endsection

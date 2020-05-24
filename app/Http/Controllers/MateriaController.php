@@ -192,4 +192,17 @@ class MateriaController extends Controller
         return redirect()->route('materia')->with('success','Materia eliminada satisfactoriamente');
     }
 
+    public function showlist(){
+      //titulo de la pagina
+          $title = 'Seleccionar materia';
+          //texto del boton Add
+          $btn_add = 'Crear nueva Materia';
+
+          //listado de materias activas
+          $materias = Materia::with('bibliografias')->with('unidades')->where('estado','1')->get();
+
+          //Retorno de la vista
+          return view('Materia.showlist',compact('materias','title','btn_add'));
+    }
+
 }
