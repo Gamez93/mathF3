@@ -57,19 +57,10 @@ class MultimediaController extends Controller
         $title = 'Programa de ' . ' "' . $materia->nombre . '"';
 
         //titulo del boton
-        $btn_store = 'Guardar';
-
-        //titulo del boton
         $btn_cancel = 'Regresar';
 
-        //titulo del contenido
-        $title_c = 'Administrar Contenido de' . ' "' . $materia->nombre . '"';
-
-        //Guardamos en sesion el Id de la materia que se esta editando
-        //session()->put('idMateria', $materia->id);
-
         //return de vista + parametros
-        return view('Multimedia.show_materia',compact('title','btn_store','btn_cancel','materia'));
+        return view('Multimedia.show_materia',compact('title','btn_cancel','materia'));
     }
 
     /**
@@ -80,26 +71,14 @@ class MultimediaController extends Controller
      */
     public function showvideo($id)
     {
-        //Select de la materia
-        $materia = Materia::Findorfail($id);
-
         //titulo de la pagina
-        $title = 'Programa de ' . ' "' . $materia->nombre . '"';
+        $title = 'Listado de Videos';
 
-        //titulo del boton
-        $btn_store = 'Guardar';
+        $unidades = Unidad::with('videos')->where('materia_id',$id)->get();
 
-        //titulo del boton
-        $btn_cancel = 'Regresar';
-
-        //titulo del contenido
-        $title_c = 'Administrar Contenido de' . ' "' . $materia->nombre . '"';
-
-        //Guardamos en sesion el Id de la materia que se esta editando
-        //session()->put('idMateria', $materia->id);
 
         //return de vista + parametros
-        return view('Multimedia.show_materia',compact('title','btn_store','btn_cancel','materia','title_c'));
+        return view('Multimedia.show_video',compact('title','unidades'));
     }
 
     /**
@@ -156,12 +135,12 @@ class MultimediaController extends Controller
 
     public function showlist(){
         //titulo de la pagina
-            $title = 'Contenido de Materias';
+        $title = 'Contenido de Materias';
   
-            //listado de materias activas
-            $materias = Materia::with('bibliografias')->with('unidades')->where('estado','1')->get();
+        //listado de materias activas
+        $materias = Materia::with('bibliografias')->with('unidades')->where('estado','1')->get();
   
-            //Retorno de la vista
-            return view('Multimedia.show_list',compact('materias','title'));
-      }
+        //Retorno de la vista
+        return view('Multimedia.show_list',compact('materias','title'));
+    }
 }

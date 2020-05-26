@@ -13,7 +13,7 @@
      INICIO</a>
   <div class="dropdown-divider"></div>
 
-  <a class="dropdown-item {{ URL::route('hoja') === URL::current() ? 'active' : '' }}" href="{{ route('hoja') }}" onclick="changeClass(2);">
+  <a class="dropdown-item {{ URL::route('clase') === URL::current() ? 'active' : '' }}" href="{{ route('clase') }}">
     <img src="{{ url('/icons/pencil.svg') }}" alt="" width="25" height="25" title="Clases">
     CLASES</a>
   <div class="dropdown-divider"></div>

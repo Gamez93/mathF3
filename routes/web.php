@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //__________________________________________________________________________________________________________
 //Clases
-Route::view('/hoja','/hojas/hoja')->name('hoja');
+Route::get('/clase','ClaseController@index')->name('clase');
 
 //__________________________________________________________________________________________________________
 //Multimedia

@@ -12,8 +12,8 @@
 <div class="container">
   <!--Encabezado de la hoja donde interactua el usuario -->
   <button type="button" class="btn btn-outline-dark btn-lg btn-block text-dark mb-1" disabled>
-    <img src="../public/icons/file-text.svg" alt="" width="25" height="25" title="Hoja">
-    Hoja de Estudio
+    <img src="{{ url('/icons/file-text.svg') }}" alt="" width="25" height="25" title="Hoja">
+    Hoja actual 
   </button>
 
   <!--Opciones de la Hoja -->
@@ -25,12 +25,13 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <!--
       <li class="nav-item">
         <a class=" nav-link" href="#">
           <img src="{{ url('/icons/file-earmark-plus.svg') }}" alt="" width="25" height="25" title="Nuevo">
 
         </a>
-      </li>
+      </li>-->
       <li>
         <a class="nav-item nav-link" href="#">
           <img src="{{ url('/icons/upload.svg') }}" alt="" width="25" height="25" title="Cargar">
@@ -54,24 +55,27 @@
           <img src="{{ url('/icons/play.svg') }}" alt="" width="25" height="25" title="Resolver">
         </a>
       </li>
+      <!--
       <li>
         <a class="nav-item nav-link" href="#">
           <img src="{{ url('/icons/plus-square.svg') }}" alt="" width="25" height="25" title="Guardar">
         </a>
       </li>
+      
       <li>
         <a class="nav-item nav-link" href="#">
           <img src="{{ url('/icons/trash.svg') }}" alt="" width="25" height="25" title="Borrar">
         </a>
-      </li>
+      </li>-->
       <li>
         <a class="nav-item nav-link" href="#">
           <img role="img" class="text-success" src="{{ url('/icons/question-square.svg') }}" alt="" width="25" height="25" title="Ayuda">
-
-
         </a>
       </li>
     </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Guardar</button>
+    </form>
   </div>
 </nav>
 
@@ -105,33 +109,55 @@
 
 <!-- Seccion de Anotaciones-->
 @section('anotaciones')
-<button type="button" class="btn btn-outline-primary btn-lg btn-block text-primary mb-3" disabled>
-  <img src="../public/icons/file-earmark.svg" alt="" width="25" height="25" title="Anotaciones">
-  Anotaciones
-</button>
-<div class="list-group text-center border border-dark rounded" >
+  <div class="row ">
+    <div class="col">
+      <button type="button" class="btn btn-outline-primary btn-lg btn-block text-primary mb-2 " disabled >
+        <img src="../public/icons/file-earmark.svg" alt="" width="20" height="20" title="Anotaciones">
+        Hojas 
+      </button>
+    </div>
+  </div>
 
-  <button type="button" class="list-group-item list-group-item-action">
-    Cras justo odio
-  </button>
-  <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-  <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-  <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-  <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
-</div>
+  <div class="row ">
+    <div class="col">
+      <a class="btn btn-outline-success btn-lg btn-block  mb-1 btn-sm" href="" >+++</a>
+    </div>
+  </div>
+    
+  @if($anotaciones->count() > 0)
+    @foreach($anotaciones as $anotacion)
+      <div class="row" >
+        <div class="col-9 col-auto">
+          <a href="#" class="btn btn-outline-dark  btn-block  mb-1 btn-sm"  >{{$anotacion->tema}}</a>
+        </div>
+        <div class="col-3 col-auto">
+          <a class="btn btn-outline-danger btn-block  mb-1 btn-sm" href="" >
+              -
+          </a>
+        </div>
+      </div> 
+          
+    @endforeach
+    @else
+    <div class="row ">
+      <div class="col">
+        <a href="">No hay registros.</a>
+      </div>
+    </div>
+  @endif
 @endsection
 
 <!-- Seccion para mostrar graficas-->
 @section('graf')
-  <button type="button" class="btn btn-outline-primary btn-lg btn-block text-primary mb-3" disabled>
-    <img src="../public/icons/graph-up.svg" alt="" width="25" height="25" title="Graficas">
+  <button type="button" class="btn btn-outline-primary btn-lg btn-block text-primary mb-2" disabled>
+    <img src="../public/icons/graph-up.svg" alt="" width="20" height="20" title="Graficas">
     Graficas
   </button>
   <div class="content border border-dark rounded">
-    <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-    <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-    <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
-    <button type="button" class="list-group-item list-group-item-action">Vestibulum at eros</button>
+    <button type="button" class="list-group-item list-group-item-action">.</button>
+    <button type="button" class="list-group-item list-group-item-action">.</button>
+    <button type="button" class="list-group-item list-group-item-action">.</button>
+    <button type="button" class="list-group-item list-group-item-action">.</button>
   </div>
 @endsection
 

@@ -36,9 +36,6 @@ class BibliografiaController extends Controller
 
         $bibliografias = Bibliografia::with('materia')->where('estado','1')->where('materia_id',$id2)->simplePaginate(8);
 
-        //$bibliografias = Bibliografia::with('materia')->where('estado','1')->simplePaginate(8);
-        //dd($bibliografias);
-
         //Retorno de la vista
         return view('Bibliografia.index',compact('bibliografias','title','btn_add'));
     }
