@@ -72,7 +72,9 @@ class MultimediaController extends Controller
     public function showvideo($id)
     {
         //titulo de la pagina
-        $title = 'Listado de Videos';
+        $materia = Materia::Findorfail($id);
+
+        $title = 'Videos de ' . $materia->nombre;
 
         $unidades = Unidad::with('videos')->where('materia_id',$id)->get();
 
@@ -136,10 +138,10 @@ class MultimediaController extends Controller
     public function showlist(){
         //titulo de la pagina
         $title = 'Contenido de Materias';
-  
+
         //listado de materias activas
         $materias = Materia::with('bibliografias')->with('unidades')->where('estado','1')->get();
-  
+
         //Retorno de la vista
         return view('Multimedia.show_list',compact('materias','title'));
     }

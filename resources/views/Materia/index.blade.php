@@ -26,7 +26,7 @@
           <th scope="col">Num. de Orden</th>
           <!--
           <th scope="col">Ver</th>-->
-          <th scope="col">Editar</th>
+          <th scope="col">Administrar</th>
           <th scope="col">Eliminar</th>
         </tr>
       </thead>
@@ -43,7 +43,7 @@
           <td>{{$materia->numeroDeOrden}}</td>
           <!--<td><a class="btn btn-outline-success btn-sm" href="#" role="button">Ver</a></td>-->
           <td>
-            <a class="btn btn-outline-primary btn-sm" href="{{action('MateriaController@edit', $materia->id)}}"  role="button">Editar</a>
+            <a class="btn btn-outline-primary btn-sm" href="{{action('MateriaController@edit', $materia->id)}}"  role="button">Administrar</a>
           </td>
           <td>
             <form action="{{ route('materia.destroy', $materia->id) }}" method="POST">
@@ -92,7 +92,7 @@
 
 @section('graf')
 <div class="alert alert-info alert-dismissible fade show w-75" role="alert">
-   Para administrar el contenido de una materia, hacer clic en <strong>"Editar"</strong>
+   Para editar el contenido de una materia, hacer clic en <strong>"Administrar"</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>

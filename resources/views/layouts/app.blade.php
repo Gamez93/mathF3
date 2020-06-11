@@ -96,7 +96,7 @@
     <div class="row">
       <div class="col-sm">
 
-        <!-- Alerta de errores 
+        <!-- Alerta de errores
         @if ($errors->any())
             @foreach ($errors->all() as $error)
             <div class="alert alert-danger alert-dismissible fade show" role="alert">

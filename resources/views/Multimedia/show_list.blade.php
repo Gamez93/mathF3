@@ -37,15 +37,15 @@
                     <div class"row">
                       <div class"col">
                         <a  href="{{action('MultimediaController@showvideo', $materia->id)}}" class="btn  bg-light {{$count_videos > 0 ? 'text-primary btn-primary' : 'text-danger disabled btn-danger'}} mb-2" style="width: 9rem; "  data-toggle="tooltip" data-placement="top" title="videos disponibles">
-                          VIDEOS 
+                          VIDEOS
                         </a>
-                        
+
                         <a class="btn  bg-light {{$count_videos > 0 ? 'text-primary btn-primary' : 'text-danger disabled btn-danger'}} mb-2" style="width: 3rem; " href="{{action('MultimediaController@showvideo', $materia->id)}}">
                           {{$count_videos}}
                         </a>
                       </div>
                     </div>
-                        
+
                     <!-- fila 2 -->
                     <div class"row">
                       <div class"col">
