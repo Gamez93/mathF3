@@ -23,7 +23,7 @@ class ClaseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $idUser = auth()->user()->id;
         //dd($idUser);
         $anotaciones = Clase::where('users_id',$idUser)->get();
@@ -31,12 +31,12 @@ class ClaseController extends Controller
         if (!($anotaciones->count() >= 1)) {
             $anotaciones = Clase::create([
                 'users_id' => $idUser,
-                'tema'       => 'Anotacion Inicial',
-                'contenido'  => 'Hoja de estudia',
+                'tema'       => 'Nueva Clase',
+                'contenido'  => 'Hoja de estudio',
               ]);
         }
 
-        
+
 
         //Retorno de la vista
         return view('Clase.index',compact('anotaciones',));

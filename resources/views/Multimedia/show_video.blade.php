@@ -14,7 +14,6 @@
   </button>
   <br>
   @foreach($unidades as $unidad)
-
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4">{{$unidad->nombre}}</h1>
