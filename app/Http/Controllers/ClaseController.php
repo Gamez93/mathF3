@@ -36,10 +36,11 @@ class ClaseController extends Controller
               ]);
         }
 
-
-
+        $anotaciones = Clase::where('users_id',$idUser)->get();
+        //session()->put('idClase', $anotaciones[0]->id);
         //Retorno de la vista
-        return view('Clase.index',compact('anotaciones',));
+        $clase = $anotaciones[0];
+        return view('Clase.index',compact('anotaciones','clase'));
     }
 
     /**
@@ -59,8 +60,17 @@ class ClaseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   //dd($request);
+        $idUser = auth()->user()->id;
+
+        Clase::create([
+          'tema' =>$request->tema,
+          'users_id'=>$idUser,
+          'contenido'=>'Universidad Centroamericana "José Simeón Cañas"',
+        ]);
+
+        //Retorno de vista
+        return redirect()->route('clase')->with('success','Clase creada satisfactoriamente');
     }
 
     /**
@@ -71,7 +81,13 @@ class ClaseController extends Controller
      */
     public function show($id)
     {
-        //
+      $idUser = auth()->user()->id;
+      //dd($idUser);
+      $anotaciones = Clase::where('users_id',$idUser)->get();
+
+      $clase = Clase::Findorfail($id);
+
+      return view('Clase.index',compact('anotaciones','clase'));
     }
 
     /**
@@ -105,6 +121,13 @@ class ClaseController extends Controller
      */
     public function destroy($id)
     {
-        //
+      //Buscamos Materia por ID
+      $clase = Clase::Findorfail($id);
+
+      //delete
+      $clase->delete();
+
+      //Retorno de vista
+      return redirect()->route('clase')->with('success','Clase eliminada satisfactoriamente');
     }
 }

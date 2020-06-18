@@ -27,11 +27,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //__________________________________________________________________________________________________________
 //Clases
-Route::get('/clase','ClaseController@index')->name('clase');
+  //index
+  Route::get('/clase','ClaseController@index')->name('clase');
 
-//__________________________________________________________________________________________________________
-//Multimedia
-Route::view('/multimedia','/multimedia/multimedia')->name('multimedia');
+  //Eliminar Clase
+  Route::delete('/clase/{id}','ClaseController@destroy')->name('clase.destroy');
+
+  //Guardar nueva clase
+  Route::post('/clase/store','ClaseController@store')->name('clase.store');
+
+  //Cargar Clases
+  Route::get('/clase/{id}/show','ClaseController@show')->name('clase.show');
+
+  //Update o Guardar clase
+  Route::put('/clase/{id}','ClaseController@update');
 
 //__________________________________________________________________________________________________________
 //Bibliografia
