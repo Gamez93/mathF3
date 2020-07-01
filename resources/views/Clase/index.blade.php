@@ -9,84 +9,71 @@
 @endsection
 
 @section('content')
-<div class="container">
-  <!--Encabezado de la hoja donde interactua el usuario -->
-  <button type="button" class="btn btn-outline-dark btn-lg btn-block text-dark mb-1" disabled>
-    <img src="{{ url('/icons/file-text.svg') }}" alt="" width="25" height="25" title="Hoja">
-    {{$clase->tema}}
-  </button>
 
-  <!--Opciones de la Hoja -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border border-primary  rounded mb-1 p-1">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon sm"></span>
+
+  <div class="container">
+    <!--Encabezado de la hoja donde interactua el usuario -->
+    <button type="button" class="btn btn-outline-dark btn-lg btn-block text-dark mb-1" disabled>
+      <img src="{{ url('/icons/file-text.svg') }}" alt="" width="25" height="25" title="Hoja">
+      {{$clase->tema}}
     </button>
-  <a class="navbar-brand text-primary" href="#">Opciones</a>
 
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <!--
-      <li class="nav-item">
-        <a class=" nav-link" href="#">
-          <img src="{{ url('/icons/file-earmark-plus.svg') }}" alt="" width="25" height="25" title="Nuevo">
+    <!--Opciones de la Hoja -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border border-primary  rounded mb-1 p-1">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon sm"></span>
+      </button>
+    <a class="navbar-brand text-primary" href="#">Opciones</a>
 
-        </a>
-      </li>-->
-      <li>
-        <a class="nav-item nav-link" href="#">
-          <img src="{{ url('/icons/upload.svg') }}" alt="" width="25" height="25" title="Cargar">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li>
+          <a class="nav-item nav-link" href="#">
+            <img src="{{ url('/icons/upload.svg') }}" alt="" width="25" height="25" title="Cargar">
 
-        </a>
-      </li>
-      <li>
-        <a class="nav-item nav-link" href="#">
-          <img src="{{ url('/icons/download.svg') }}" alt="" width="25" height="25" title="Descargar">
+          </a>
+        </li>
+        <li>
+          <a class="nav-item nav-link"   value=""  id="descargar_txt"  href="javascript:;">
+            <img src="{{ url('/icons/download.svg') }}" alt="" width="25" height="25" title="Descargar">
 
-        </a>
-      </li>
-      <li>
-        <a class="nav-item nav-link" href="#">
-          <img src="{{ url('/icons/graph-up.svg') }}" alt="" width="25" height="25" title="Graficar">
+          </a>
+        </li>
+        <li>
+          <a class="nav-item nav-link" href="#">
+            <img src="{{ url('/icons/graph-up.svg') }}" alt="" width="25" height="25" title="Graficar">
 
-        </a>
-      </li>
-      <li>
-        <a class="nav-item nav-link" href="#">
-          <img src="{{ url('/icons/play.svg') }}" alt="" width="25" height="25" title="Resolver">
-        </a>
-      </li>
-      <!--
-      <li>
-        <a class="nav-item nav-link" href="#">
-          <img src="{{ url('/icons/plus-square.svg') }}" alt="" width="25" height="25" title="Guardar">
-        </a>
-      </li>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item nav-link" href="#">
+            <img src="{{ url('/icons/play.svg') }}" alt="" width="25" height="25" title="Resolver">
+          </a>
+        </li>
+        <li>
+          <a class="nav-item nav-link" href="#">
+            <img role="img" class="text-success" src="{{ url('/icons/question-square.svg') }}" alt="" width="25" height="25" title="Ayuda">
+          </a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" method="post" action="{{action('ClaseController@update', $clase->id)}}">
+      {{ method_field('PUT') }}
+      {{csrf_field()}}
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Guardar Clase</button>
+      </form>
+    </div>
+  </nav>
 
-      <li>
-        <a class="nav-item nav-link" href="#">
-          <img src="{{ url('/icons/trash.svg') }}" alt="" width="25" height="25" title="Borrar">
-        </a>
-      </li>-->
-      <li>
-        <a class="nav-item nav-link" href="#">
-          <img role="img" class="text-success" src="{{ url('/icons/question-square.svg') }}" alt="" width="25" height="25" title="Ayuda">
-        </a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" method="post" action="{{action('ClaseController@update', $clase->id)}}">
-    {{ method_field('PUT') }}
-    {{csrf_field()}}
-      <button class="btn btn-primary my-2 my-sm-0" type="submit">Guardar Clase</button>
-    </form>
-  </div>
-</nav>
+    <!--div editor:  div en el cual tiene la etiqueta conteneditable la cual se va a utilizar como texarea para ingresar informacion por el usuario-->
+  	<div id='editor'  contenteditable="true" class="editor rounded"   onmousedown='eventoCalcular()' >
+        <p>{{$clase->contenido}}</p>
+  	</div> <!--Fin Div editor-->
 
-  <!--div editor:  div en el cual tiene la etiqueta conteneditable la cual se va a utilizar como texarea para ingresar informacion por el usuario-->
-	<div id='editor'  contenteditable="true" class="editor rounded"   onmousedown='eventoCalcular()' >
-      <p>{{$clase->contenido}}</p>
-	</div> <!--Fin Div editor-->
-  
-</div><!-- cierre de seccion content-->
+  </div><!-- cierre de seccion content-->
+
+  <!--Funciones de Descarga de Archivo .math -->
+  @include('js.download')
+
 @endsection
 
 <!-- Seccion de Anotaciones-->
