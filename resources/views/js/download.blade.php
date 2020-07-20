@@ -20,7 +20,7 @@
   	 texto=texto.split(" \\,a \\,Derivar\\,, Paso \\,a \\,Paso:").join("");
   	  texto=texto.split("\\textcolor").join("");
       return {
-          nombre: texto  ,
+          nombre: texto,
       };
   };
 

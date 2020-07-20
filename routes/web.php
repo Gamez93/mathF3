@@ -36,8 +36,13 @@ Route::get('/home', 'HomeController@index')->name('home');
   //Guardar nueva clase
   Route::post('/clase/store','ClaseController@store')->name('clase.store');
 
+  //Upload File
+  Route::post('/clase/upload','ClaseController@uploadFile')->name('clase.upload');
+
   //Cargar Clases
   Route::get('/clase/{id}/show','ClaseController@show')->name('clase.show');
+
+  Route::post('ajaxshow','ClaseController@show2');
 
   //Update o Guardar clase
   Route::put('/clase/{id}','ClaseController@update');
