@@ -1,7 +1,6 @@
 
 <?php
     //index al entrar a clases
-    
     $idClaseActual = session()->get('idClaseActual');
  ?>
 
