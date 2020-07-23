@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 @extends('layouts.app')
 
 @section('sidebar')
@@ -39,7 +40,7 @@
           </a>
         </li>
         <li>
-          <a class="nav-item nav-link" href="#">
+          <a class="nav-item nav-link" href="javascript:;" id="id_boton_grafica">
             <img src="{{ url('/icons/graph-up.svg') }}" alt="" width="25" height="25" title="Graficar">
 
           </a>
@@ -93,37 +94,12 @@
 <input type="button" value=""  id="guardar_bd" onclick="bd()"  href="javascript:;"  style="background:url(../../img/1.png) no-repeat; border:none; width:16px; height:16px;" title="Guardar"   />
   -->
 
-  <!--Funciones de Descarga de Archivo .math -->
-  @include('js.download')
 
-  <!--Funciones de Carga de Archivo .math -->
-  @include('js.upload')
-
-  <!--Funciones para guardar clases -->
-  @include('js.saveclass')
-
-  <!--Funciones para mostrar clases -->
-  @include('js.showclass')
 
 
 @endsection
 
 <!-- Modals -->
-
-<!-- Modal para subir archivo -->
-<div id="myModal" class="modal">
-
-  <!-- Contenido del modal -->
-  <div class="modal-content">
-    <span class="close">&times;</span> <!-- para cerrar el modal -->
-  <H2><b><u>Subir Archivo de clases <b></u></H2>
-  <br>
-  <span>Para subir un elemento, seleccionar archivo y autom&aacuteticamente se cargara en pantalla</span>
-  <br><br>
-    <input type="file" value=""  id="file-input2"  /> <!-- input file para subir el archivo -->
-  </div>
-
-</div>
 
 <!-- Seccion de Anotaciones-->
 @section('anotaciones')
@@ -202,6 +178,8 @@
     </div>
   </div>
 
+
+
   @if($anotaciones->count() > 0)
     @foreach($anotaciones as $anotacion)
       <div class="row" >
@@ -234,10 +212,25 @@
     <img src="{{ url('/icons/graph-up.svg') }}" alt="" width="20" height="20" title="Graficas">
     Graficas
   </button>
-  <div class="content border border-dark rounded">
-    <button type="button" class="list-group-item list-group-item-action">.</button>
-    <button type="button" class="list-group-item list-group-item-action">.</button>
-    <button type="button" class="list-group-item list-group-item-action">.</button>
-    <button type="button" class="list-group-item list-group-item-action">.</button>
+  <div class="row ">
+    <div class="col">
+      <div align="center" id="plot"  class="alert alert-success hidden"    style="width: 400px; height: 300px;"   ></div>
+    </div>
   </div>
+
+
+  <!--Funciones de Descarga de Archivo .math -->
+  @include('js.download')
+
+  <!--Funciones de Carga de Archivo .math -->
+  @include('js.upload')
+
+  <!--Funciones para guardar clases -->
+  @include('js.saveclass')
+
+  <!--Funciones para mostrar clases -->
+  @include('js.showclass')
+
+  <!--Funciones para mostrar clases -->
+  @include('js.calculo')
 @endsection

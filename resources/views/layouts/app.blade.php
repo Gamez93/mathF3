@@ -22,6 +22,12 @@
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" defer></script>
     <link href="{{ asset('bootstrap/css/style.css') }}" rel="stylesheet">
 
+    <link href="{{ asset('bootstrap/css/katex.css') }}" rel="stylesheet">
+    <script src="{{ asset('bootstrap/js/math.min.js') }}" ></script>
+    <script src="{{ asset('bootstrap/js/jquery.min.1.4.2.js') }}" ></script>
+    <script src="{{ asset('bootstrap/js/plotly-1.35.2.min.js') }}" ></script>
+    <script src="{{ asset('bootstrap/js/katex.min.js') }}" ></script>
+
 </head>
 <body>
     <div id="app">
@@ -175,7 +181,6 @@
 
     </div>
 
-    <!--footer <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>-->
     <div class="row">
       <div class="col-sm">
 
