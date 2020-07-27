@@ -28,39 +28,29 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li>
-          <!--<a class="nav-item nav-link" value=""  id="id_subir_archivo"  href="javascript:;">
-            <img src="{{ url('/icons/upload.svg') }}" alt="" width="25" height="25" title="Cargar">
-          </a>-->
           <button  class="btn btn-outline-light btn-lg btn-block  mb-1 btn-sm" data-toggle="modal" data-target="#ModalUpload" data-whatever=""><img src="{{ url('/icons/upload.svg') }}" alt="" width="25" height="25" title="Cargar"></button>
         </li>
         <li>
           <a class="nav-item nav-link"   value=""  id="descargar_txt"  href="javascript:;">
             <img src="{{ url('/icons/download.svg') }}" alt="" width="25" height="25" title="Descargar">
-
           </a>
         </li>
         <li>
-          <a class="nav-item nav-link" href="javascript:;" id="id_boton_grafica">
+          <a class="nav-item nav-link" href="javascript:;" id="id_boton_grafica2" onclick="graficar();">
             <img src="{{ url('/icons/graph-up.svg') }}" alt="" width="25" height="25" title="Graficar">
 
           </a>
         </li>
         <li>
-          <a class="nav-item nav-link" href="#">
-            <img src="{{ url('/icons/play.svg') }}" alt="" width="25" height="25" title="Resolver">
-          </a>
-        </li>
-        <li>
-          <a class="nav-item nav-link" href="#">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-outline-light btn-lg btn-block  mb-1 btn-sm" data-toggle="modal" data-target="#ModalHelp">
             <img role="img" class="text-success" src="{{ url('/icons/question-square.svg') }}" alt="" width="25" height="25" title="Ayuda">
-          </a>
-
+          </button>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0" method="post" onmouseover="saveContenido()" action="{{action('ClaseController@update', $clase->id)}}">
       {{ method_field('PUT') }}
       {{csrf_field()}}
-
           <input type="hidden" name="contenido"  id="contenido">
           <input type="hidden" name="idclase"  id="idclase">
         <button class="btn btn-primary my-2 my-sm-0" type="submit">Guardar Clase</button>
@@ -121,6 +111,26 @@
 
     </div>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="ModalHelp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">AYUDA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	<p  align="justify">1- Para graficar una funcion: Seleccionar con el cursor la funcion y apretar boton de "Graficar" en la barra de opciones. </p>
+					<p  align="justify">2- Para operar una expresion: Seleccionar con el cursor la expresion y presionar el boton ctrl.</p>
+					<p  align="justify">3- Sintaxis de ejecucion: primera derivada de f(x) , dominio de f(x), limite de f(x) cuando x tiende a 0...9-infinito.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
 
   <!--Ventana Modal para subir archivo -->
   <div class="modal fade" id="ModalUpload" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -214,7 +224,7 @@
   </button>
   <div class="row ">
     <div class="col">
-      <div align="center" id="plot"  class="alert alert-success hidden"    style="width: 400px; height: 300px;"   ></div>
+      <div  id="plot"  class=" "       ></div>
     </div>
   </div>
 

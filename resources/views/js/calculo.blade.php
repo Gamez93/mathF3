@@ -55,11 +55,6 @@ function realizaParser(valor){
 }
 
 
-
-
-
-
-
 //parser de token solo verifica que esten los tokens correctos
 
 function verificaTokens(valor){
@@ -88,15 +83,9 @@ function verificaTokens(valor){
 		return respuesta //retorno la respuesta del parser
 }
 
-
-
 </script>
 
-
-
 <script>
-
-
 //evento para que solo se haga una vez por click + ctrl
 
 	//evento donde llama la funcion
@@ -357,7 +346,7 @@ function realizaProceso(valor,previa,reemplazar){
                 type:  'post', //método de envio
                 beforeSend: function () {
                       // $("#resultado").html("Procesando, espere por favor...");
-					  alert("Procesando, espere por favor...");
+					  //alert("Procesando, espere por favor...");
                 },
                 success:  function (response) { //una vez que el archivo recibe el request lo procesa y lo devuelve
 
@@ -427,45 +416,11 @@ function realizaProceso(valor,previa,reemplazar){
 
    </script>
 
-
-
-
 <!--****************************************************************************************************** -->
 
 <script>
-// funcion ayuda():muestra la ayuda con indicaciones de manejo del programa al presionar el boton de ayuda
-	function ayuda() {
-
-		//alert con la ayuda para el usuario
-		Swal.fire({
-					title: '<strong>AYUDA</strong>',
-					type: 'success',
-					html:
-					'<p align="justify" >1-Para realizar una operacion: se tiene que seleccionar con el cursos la funcion y apretar el boton de grafica. </p>'+
-					'<p  align="justify">2- Para graficar la funcion seleccionar la funcion con el cursos y apretar boton de ?. </p>'+
-					'<p  align="justify">3- Para operar la funcion poner sobre la funcion el cursor y dar un click y presionar el boton ctrl.</p>'+
-					'<p  align="justify">4-Sintaxis de ejecucion primera derivada de f(x) , dominio de f(x), limite de f(x) cuando x tiende a 0...9-infinito.</p>',
-
-					showCloseButton: true,
-
-
-						});
-
-}
-</script>
-
-<!--****************************************************************************************************** -->
-
-
-
-
-
-
-
-   <script>
 // funcion graficar: funcion principal que ayuda a sustituir las diferencias de sintaxis entre sympy y math.js
 	function graficar() {
-    alert(1);
 // variable contenido: obtiene la seleccion del usuario sombreando el texto que necesita, en este caso es la funcion a graficar
 		var contenido = window.getSelection().anchorNode.data.substring( window.getSelection().anchorOffset,window.getSelection().extentOffset );
 // variable funcion: la libreria para graficar tiene distinta sintaxis al de sumpy por lo que es necesario remplazar

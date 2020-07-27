@@ -23,7 +23,7 @@
           <div class="row ">
             @foreach($unidad->videos as $video)
               <div class="col">
-                <div class="card border-light mb-3" style="width: 25rem; ">
+                <div class="card border-light mb-3" style="width: 20rem; ">
 
                   <div class="card-body ">
                     <p class="card-text text-primary">{{$video->descripcion}}</p>
